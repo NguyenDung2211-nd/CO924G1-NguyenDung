@@ -29,6 +29,7 @@
     <td> <button id="kq" onclick="doi">Convert</button></td>
   </tr>
 </table>
+<p id="result"></p>
 <script>
   document.getElementById("kq").onclick = function doi(){
     let a = document.getElementById("c").value;
@@ -36,20 +37,20 @@
     let number1 = +document.getElementById("nhap").value;
     let result;
     if(a =="VND" && b == "USD" ){
-      result =  23000 / number1;
-      document.write(`${result} USD`);
+      result =  number1 / 23000 ;
+      document.getElementById("result").innerHTML = result + " USD";
     }
     else if( a == "USD" && b == "VND" ){
       result = number1 * 23000;
-      document.write(`${result} VND`);
+      document.getElementById("result").innerHTML = result + " VND";
     }
     else if(a == "VND" && b == "VND") {
       result = number1;
-      document.write(`${result} VND`);
+      document.getElementById("result").innerHTML = result + " VND";
     }
     else{
       result = number1;
-      document.write(`${result} USD`)
+      document.getElementById("result").innerHTML = result + " USD";
     }
 
   }
