@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>Amount</th>
+    <th>From Currency</th>
+    <th>To Currency</th>
+    <td></td>
+  </tr>
+  <tr>
+    <td><input id="nhap" type="number"></td>
+    <td><label>
+      <select id="c">
+        <option value="VND">VND</option>
+        <option value="USD">USD</option>
+      </select>
+    </label></td>
+    <td><label>
+      <select id="d">
+        <option value="VND">VND</option>
+        <option value="USD">USD</option>
+      </select>
+    </label></td>
+    <td> <button id="kq" onclick="doi">Convert</button></td>
+  </tr>
+</table>
+<script>
+  document.getElementById("kq").onclick = function doi(){
+    let a = document.getElementById("c").value;
+    let b = document.getElementById("d").value;
+    let number1 = +document.getElementById("nhap").value;
+    let result;
+    if(a =="VND" && b == "USD" ){
+      result =  23000 / number1;
+      document.write(`${result} USD`);
+    }
+    else if( a == "USD" && b == "VND" ){
+      result = number1 * 23000;
+      document.write(`${result} VND`);
+    }
+    else if(a == "VND" && b == "VND") {
+      result = number1;
+      document.write(`${result} VND`);
+    }
+    else{
+      result = number1;
+      document.write(`${result} USD`)
+    }
+
+  }
+
+</script>
+
+</body>
+</html>
