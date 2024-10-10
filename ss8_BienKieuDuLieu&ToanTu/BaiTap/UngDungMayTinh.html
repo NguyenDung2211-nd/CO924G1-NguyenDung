@@ -5,38 +5,37 @@
     <title>Title</title>
 </head>
 <body>
-  <input type="number" name="maytinh" id="mt">
-  <input type="number" name="mt" id="mvt"><br> <br>
-  <button id="a" onclick="cong">Addition(+)</button>
-  <button id="b" onclick="tru">Subtraction(-)</button>
-  <button id="c" onclick="nhan">Mutiplication(*)</button>
-  <button id="d" onclick="chia">Division(/)</button>
+  <input type="text" name="mayTinh" id="mt">
+  <input type="text" name="mt" id="mvt"><br> <br>
+  <button id="a" onclick="plus">Addition(+)</button>
+  <button id="b" onclick="except">Subtraction(-)</button>
+  <button id="c" onclick="multiply">Mutiplication(*)</button>
+  <button id="d" onclick="divide">Division(/)</button>
 <p id="kq"></p>
 <script>
-
-document.getElementById("a").onclick= function cong(){
+document.getElementById("a").onclick= function plus(){
     let number1 = +document.getElementById("mt").value;
     let number2 = +document.getElementById("mvt").value;
-  let ketqua = number1 + number2;
-document.getElementById("kq").innerHTML="Kết quả : "+ketqua;
+  let result = number1 + number2;
+document.getElementById("kq").innerHTML="Kết quả : "+result;
 }
-document.getElementById("b").onclick= function tru(){
+document.getElementById("b").onclick= function except(){
     let number1 = +document.getElementById("mt").value;
     let number2 = +document.getElementById("mvt").value;
-    let ketqua = number1 - number2;
-    document.getElementById("kq").innerHTML="Kết quả : "+ketqua;
+    let result = number1 - number2;
+    document.getElementById("kq").innerHTML="Kết quả : "+result;
 }
-document.getElementById("c").onclick= function nhan(){
+document.getElementById("c").onclick= function multiply(){
     let number1 = +document.getElementById("mt").value;
     let number2 = +document.getElementById("mvt").value;
-    let ketqua = number1 * number2;
-    document.getElementById("kq").innerHTML="Kết quả : "+ketqua;
+    let result = number1 * number2;
+    document.getElementById("kq").innerHTML="Kết quả : "+result;
 }
-document.getElementById("d").onclick= function chia(){
+document.getElementById("d").onclick= function divide(){
     let number1 = +document.getElementById("mt").value;
     let number2 = +document.getElementById("mvt").value;
-    let ketqua = number1 / number2;
-    document.getElementById("kq").innerHTML="Kết quả : "+ketqua;
+    let result = number1 / number2;
+    document.getElementById("kq").innerHTML="Kết quả : "+result;
 }
 </script>
 
