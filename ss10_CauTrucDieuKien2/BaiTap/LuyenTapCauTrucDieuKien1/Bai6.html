@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let money = +prompt("How much money you earn");
+    let commissions = money / 10;
+    if (isNaN(money) || money < 0) {
+        alert("Wrong request");
+    } else {
+        alert("The commission you receive : " + commissions);
+    }
+</script>
+</body>
+</html>

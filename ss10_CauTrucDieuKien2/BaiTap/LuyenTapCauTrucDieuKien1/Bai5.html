@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let pointKt = +prompt("Enter test scores");
+  let pointGk = +prompt("Enter Midterm Exam Scores");
+  let pointCk = +prompt("Enter Final Exam Scores");
+  let gpa = (pointKt + pointGk + pointCk) / 3;
+  if((isNaN(pointKt) || isNaN(pointGk)) || isNaN(pointCk) || pointKt > 10 || pointKt < 0 || pointGk > 10 || pointGk < 0 || pointCk > 10 || pointGk < 0){
+    alert("Wrong request");
+  }
+  else{
+    if(gpa > 8){
+      alert(+ gpa +" point : Good")
+    }
+    else if(gpa > 6.5) {
+      alert(+ gpa +" point : Fairly")
+    }
+    else if(gpa > 5) {
+      alert(+ gpa +" point : Average")
+    }
+    else if(gpa > 3.5) {
+      alert(+ gpa +" point : Weak")
+    }
+    else{
+      alert(+ gpa +" point : Less")
+    }
+  }
+</script>
+
+</body>
+</html>
