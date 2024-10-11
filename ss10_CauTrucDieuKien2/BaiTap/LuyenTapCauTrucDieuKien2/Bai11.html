@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let  tienLuong = +prompt("Nhập tiền lương");
+  let nguoiPhuThuoc = +prompt("Nhập số người phụ thuộc");
+  let tienNguoiPhuThuoc = nguoiPhuThuoc * 4400000;
+  let tienGiaiTru = tienLuong - tienNguoiPhuThuoc;
+  if(isNaN(tienLuong) || tienLuong < 0 || isNaN(nguoiPhuThuoc) || nguoiPhuThuoc < 0 || !Number.isInteger(nguoiPhuThuoc)){
+    alert(`Nhập sai yêu cầu`);
+  }
+  else {
+    if (tienGiaiTru >= 11000000) {
+      let tienDongThue = tienGiaiTru * 5 / 100;
+      alert(`Tiền thuế phải nộp : ${tienDongThue}`)
+    } else {
+      alert(`Không cần nộp thuế`);
+    }
+  }
+</script>
+
+</body>
+</html>
