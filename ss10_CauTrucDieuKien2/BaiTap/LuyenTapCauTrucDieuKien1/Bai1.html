@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a = +prompt("Enter a");
+  let b = +prompt("Enter b");
+  if(isNaN(a) || isNaN(b)) {
+      alert("Wrong request");
+  }
+  else{
+      if (a % b === 0) {
+          alert("a divided by b");
+      } else if (a % b !== 0) {
+          alert("a not divided by b");
+      }
+  }
+</script>
+
+</body>
+</html>

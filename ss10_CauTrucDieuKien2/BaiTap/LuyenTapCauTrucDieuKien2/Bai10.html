@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let electric = +prompt("Enter electric");
+  let kwh;
+  if(electric > 0) {
+    if (electric <= 50) {
+      kwh = electric * 1.806;
+      kwh = kwh * 1.1;
+      alert("Amount of electricity to be paid : "+ kwh);
+    } else if (electric <= 100) {
+      kwh = electric * 1.866;
+      //1.1 là + thêm thuế 10% nha anh Hải :))
+      kwh = kwh * 1.1;
+      alert("Amount of electricity to be paid : "+ kwh);
+    } else if (electric <= 200) {
+      kwh = electric * 2.167;
+      kwh = kwh * 1.1;
+      alert("Amount of electricity to be paid : "+ kwh);
+    } else if (electric <= 300) {
+      kwh = electric * 2.729;
+      kwh = kwh * 1.1;
+      alert("Amount of electricity to be paid : "+ kwh);
+    } else if (electric <= 400) {
+      kwh = electric * 3.050;
+      kwh = kwh * 1.1;
+      alert("Amount of electricity to be paid : "+ kwh);
+    } else {
+      kwh = electric * 3.151;
+      kwh = kwh * 1.1;
+      alert("Amount of electricity to be paid : "+ kwh);
+    }
+  }
+  else{
+    alert("Wrong request");
+  }
+</script>
+
+</body>
+</html>

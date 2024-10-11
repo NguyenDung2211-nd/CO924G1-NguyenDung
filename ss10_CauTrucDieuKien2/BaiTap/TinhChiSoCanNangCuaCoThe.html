@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Nhập cân nặng: (kg)<input type="text" id="weigh"><br><br>
+Nhập chiều cao: (m)<input type="text" id="heigh"><br><br>
+<button id="nut" onclick="tinhBmi">Kiểm tra</button><br><br>
+<p id="result"></p>
+<script>
+    document.getElementById("nut").onclick = function tinhBmi() {
+      let weight = +document.getElementById("weigh").value;
+      let height = +document.getElementById("heigh").value;
+      let bmi = weight / (height * height);
+      if (weight > 0 && height > 0) {
+        if (bmi < 18)
+          document.getElementById("result").innerHTML = "BMI : " + bmi + " Underweight";
+        else if (bmi < 25.0)
+          document.getElementById("result").innerHTML = "BMI : " + bmi + " Normal";
+        else if (bmi < 30.0)
+          document.getElementById("result").innerHTML = "BMI : " + bmi + " Overweight";
+        else
+          document.getElementById("result").innerHTML = "BMI : " + bmi + " Obese";
+      }
+      else{
+        document.getElementById("result").innerHTML = "Wrong request"
+      }
+    }
+</script>
+
+</body>
+</html>
