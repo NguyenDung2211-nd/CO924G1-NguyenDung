@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a = +prompt("Enter a");
+  let b = +prompt("Enter b");
+  let c = +prompt("Enter c");
+  let delta = (b * b)-4 * a * c;
+  if(isNaN(a) || isNaN(b) || isNaN(c)){
+    alert("Wrong request");
+  }
+  else{
+    if(delta < 0){
+      alert("Intangible equations")
+    }
+    else if(delta === 0){
+      let x = (-b) / (2 * a);
+      alert("equations with 1 double solution");
+    }
+    else if(delta > 0){
+      let x1 = ((-b) + Math.sqrt(delta)) /2 * a;
+      let x2 = ((-b) - Math.sqrt(delta)) /2 * a;
+    }
+  }
+</script>
+</body>
+</html>

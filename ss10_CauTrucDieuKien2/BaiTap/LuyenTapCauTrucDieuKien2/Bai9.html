@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let a = +prompt("Enter a")
+  let b = +prompt("Enter b")
+  let c = +prompt("Enter c")
+  if (isNaN(a) || isNaN(b) || isNaN(c) || a <= 0 || b <= 0 || c <= 0 || (a + b) <= c || (b + c) <= a || (a + c) <= b) {
+    alert("Wrong request");
+  }
+  else {
+      alert("a,b,c are the edges of a triangle");
+  }
+</script>
+
+</body>
+</html>

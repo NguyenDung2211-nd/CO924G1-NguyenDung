@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a = +prompt("Enter a");
+  let b = +prompt("Enter b");
+  let x ;
+  x = (-b) / a
+  if(isNaN(a) || isNaN(b)){
+    alert("Wrong request");
+  }
+  else {
+    if(a === 0 && b === 0){
+      alert("Solution-infinite equations");
+    }
+    else if(a === 0 && b !== 0){
+      alert("Intangible equations");
+    }
+    else if(a !== 0 ){
+      alert("x = " + x);
+    }
+  }
+</script>
+
+</body>
+</html>
