@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 <script>
-  let a = +prompt("Enter a");
-  let b = +prompt("Enter b");
-  let c = +prompt("Enter c");
-  let maxValue = a;
-  if((isNaN(a) || isNaN(b) || isNaN(c))) {
-    alert("Not a number");
-  }
-  else {
-    if (b > maxValue) {
-      maxValue = b;
+    let a = +prompt("Enter a");
+    let b = +prompt("Enter b");
+    let c = +prompt("Enter c");
+    let maxValue = a;
+    if ((isNaN(a) || isNaN(b) || isNaN(c))) {
+        alert("Not a number");
+    } else {
+        if (b > maxValue) {
+            maxValue = b;
+        }
+        if (c > maxValue) {
+            maxValue = c;
+        }
+        alert("Max = " + maxValue);
     }
-    else if (c > maxValue) {
-      maxvalue = c;
-    }
-    alert("Max = " + maxValue);
-  }
 </script>
 
 </body>
