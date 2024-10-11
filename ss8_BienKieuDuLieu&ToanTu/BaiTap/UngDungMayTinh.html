@@ -5,38 +5,56 @@
     <title>Title</title>
 </head>
 <body>
-  <input type="text" name="mayTinh" id="mt">
-  <input type="text" name="mt" id="mvt"><br> <br>
-  <button id="a" onclick="plus">Addition(+)</button>
-  <button id="b" onclick="except">Subtraction(-)</button>
-  <button id="c" onclick="multiply">Mutiplication(*)</button>
-  <button id="d" onclick="divide">Division(/)</button>
-<p id="kq"></p>
+<input type="text" name="mayTinh" id="mt">
+<input type="text" name="mt" id="mvt"><br> <br>
+<button id="a" onclick="plus">Addition(+)</button>
+<button id="b" onclick="except">Subtraction(-)</button>
+<button id="c" onclick="multiply">Mutiplication(*)</button>
+<button id="d" onclick="divide">Division(/)</button>
+<p id="result"></p>
 <script>
-document.getElementById("a").onclick= function plus(){
-    let number1 = +document.getElementById("mt").value;
-    let number2 = +document.getElementById("mvt").value;
-  let result = number1 + number2;
-document.getElementById("kq").innerHTML="Kết quả : "+result;
-}
-document.getElementById("b").onclick= function except(){
-    let number1 = +document.getElementById("mt").value;
-    let number2 = +document.getElementById("mvt").value;
-    let result = number1 - number2;
-    document.getElementById("kq").innerHTML="Kết quả : "+result;
-}
-document.getElementById("c").onclick= function multiply(){
-    let number1 = +document.getElementById("mt").value;
-    let number2 = +document.getElementById("mvt").value;
-    let result = number1 * number2;
-    document.getElementById("kq").innerHTML="Kết quả : "+result;
-}
-document.getElementById("d").onclick= function divide(){
-    let number1 = +document.getElementById("mt").value;
-    let number2 = +document.getElementById("mvt").value;
-    let result = number1 / number2;
-    document.getElementById("kq").innerHTML="Kết quả : "+result;
-}
+    document.getElementById("a").onclick = function plus() {
+        let number1 = +document.getElementById("mt").value;
+        let number2 = +document.getElementById("mvt").value;
+        if (isNaN(number1) || isNaN(number2)) {
+            document.getElementById("result").innerHTML = "Not a Number";
+        } else {
+            let result = number1 + number2;
+            document.getElementById("result").innerHTML = "Result : " + result;
+        }
+    }
+    document.getElementById("b").onclick = function except() {
+        let number1 = +document.getElementById("mt").value;
+        let number2 = +document.getElementById("mvt").value;
+        if (isNaN(number1) || isNaN(number2)) {
+            document.getElementById("result").innerHTML = "Not a Number";
+        } else {
+            let result = number1 - number2;
+            document.getElementById("result").innerHTML = "Result : " + result;
+        }
+    }
+    document.getElementById("c").onclick = function multiply() {
+        let number1 = +document.getElementById("mt").value;
+        let number2 = +document.getElementById("mvt").value;
+        if (isNaN(number1) || isNaN(number2)) {
+            document.getElementById("result").innerHTML = "Not a Number";
+        } else {
+            let result = number1 * number2;
+            document.getElementById("result").innerHTML = "Result : " + result;
+        }
+    }
+    document.getElementById("d").onclick = function divide() {
+        let number1 = +document.getElementById("mt").value;
+        let number2 = +document.getElementById("mvt").value;
+        if (isNaN(number1) || isNaN(number2)) {
+            document.getElementById("result").innerHTML = "Not a Number";
+        } else {
+            let result = number1 / number2;
+            document.getElementById("result").innerHTML = "Result : " + result;
+        }
+    }
+
+
 </script>
 
 </body>

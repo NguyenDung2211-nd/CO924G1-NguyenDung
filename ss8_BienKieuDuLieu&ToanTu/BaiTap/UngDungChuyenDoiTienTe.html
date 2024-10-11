@@ -34,22 +34,22 @@
 <p id="result"></p>
 <script>
     document.getElementById("kq").onclick = function chuyenDoi() {
-        let a = document.getElementById("c").value;
-        let b = document.getElementById("d").value;
-        let number1 = +document.getElementById("enter").value;
+        let money1 = document.getElementById("c").value;
+        let money2 = document.getElementById("d").value;
+        let number = +document.getElementById("enter").value;
         let result;
-        if (number1 >= 0) {
-            if (a === "VND" && b === "USD") {
-                result = number1 / 23000;
+        if (number >= 0) {
+            if (money1 === "VND" && money2 === "USD") {
+                result = number / 23000;
                 document.getElementById("result").innerHTML = result + " USD";
-            } else if (a === "USD" && b === "VND") {
-                result = number1 * 23000;
+            } else if (money1 === "USD" && money2 === "VND") {
+                result = number * 23000;
                 document.getElementById("result").innerHTML = result + " VND";
-            } else if (a === "VND" && b === "VND") {
-                result = number1;
+            } else if (money1 === "VND" && money1 === "VND") {
+                result = number;
                 document.getElementById("result").innerHTML = result + " VND";
-            } else if (a === "USD" && b === "USD") {
-                result = number1;
+            } else if (money1 === "USD" && money2 === "USD") {
+                result = number;
                 document.getElementById("result").innerHTML = result + " USD";
             }
         } else {
