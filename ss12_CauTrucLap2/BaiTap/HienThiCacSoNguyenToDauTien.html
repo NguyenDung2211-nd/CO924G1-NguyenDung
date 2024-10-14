@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+
+    let count = 0;
+    let num = 2;
+    let isPrime;
+    while (count < 20) {
+        isPrime = true;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            document.write(`${num}`);
+            document.write(`<br>`);
+            count++;
+        }
+        num++;
+    }
+
+
+</script>
+
 </body>
 </html>

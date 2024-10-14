@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let number = +prompt("Nhập số");
+  let total = 0;
+  for(let i = 1; i <= number/2;i++){
+    if(number % i === 0){
+      total = total + i;
+    }
+  }
+  if(total === number){
+    alert("Đây là số hoàn hảo");
+  }
+  else {
+    alert("Đây không phải là số hoàn hảo");
+  }
+</script>
+
+</body>
+</html>
