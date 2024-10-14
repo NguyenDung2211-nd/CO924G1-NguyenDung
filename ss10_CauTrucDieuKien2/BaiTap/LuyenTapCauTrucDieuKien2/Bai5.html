@@ -6,10 +6,16 @@
 </head>
 <body>
 <script>
-let a = 10;
-let b = 5;
-let s = 1/2 * a * b;
-alert("S = "+ s +" cm^2");
+    let a = +prompt("Enter a");
+    let b = +prompt("Enter b");
+    let s;
+    if(isNaN(a) || isNaN(b) || a <= 0 || b <= 0){
+        alert("Wrong request");
+    }
+    else {
+        s = 1/2 * a * b;
+        alert("S = "+ s + " cm^2");
+    }
 </script>
 
 </body>

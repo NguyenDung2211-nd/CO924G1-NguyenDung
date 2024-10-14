@@ -9,11 +9,12 @@
   let  tienLuong = +prompt("Nhập tiền lương");
   let nguoiPhuThuoc = +prompt("Nhập số người phụ thuộc");
   let tienNguoiPhuThuoc = nguoiPhuThuoc * 4400000;
-  let tienGiaiTru = tienLuong - tienNguoiPhuThuoc;
+  let tienGiaiTru;
   if(isNaN(tienLuong) || tienLuong < 0 || isNaN(nguoiPhuThuoc) || nguoiPhuThuoc < 0 || !Number.isInteger(nguoiPhuThuoc)){
     alert(`Nhập sai yêu cầu`);
   }
   else {
+      tienGiaiTru = tienLuong - tienNguoiPhuThuoc;
     if (tienGiaiTru >= 11000000) {
       let tienDongThue = tienGiaiTru * 5 / 100;
       alert(`Tiền thuế phải nộp : ${tienDongThue}`)

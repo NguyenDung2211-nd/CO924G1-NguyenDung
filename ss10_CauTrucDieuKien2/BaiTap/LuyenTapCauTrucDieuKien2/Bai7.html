@@ -9,11 +9,12 @@
   let a = +prompt("Nhập a");
   let b = +prompt("Nhập b");
   let c = +prompt("Nhập c");
-  let delta = (b * b)-4 * a * c;
+  let delta;
   if(isNaN(a) || isNaN(b) || isNaN(c)){
     alert("Sai yêu cầu");
   }
   else{
+      delta = (b * b)-4 * a * c;
     if(delta < 0){
       alert("Phương trình vô nghiệm");
     }
