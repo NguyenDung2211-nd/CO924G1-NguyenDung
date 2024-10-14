@@ -9,12 +9,15 @@
   let number = 20;
   let num1 = 0;
   let num2 = 1;
-  for(let i = 1; i <= number; i++){
-    let result = num1 + num2;
+  let result;
+  for(let i = 2; i <= number; i++){
+    result = num1 + num2;
     num1 = num2;
     num2 = result;
-    document.write(result);
-    document.write("<br>");
+    if(result % 5 === 0){
+      document.write(`Số đầu tiên trong dãy fibonacci chia hết cho 5 là : ${result}`);
+      break;
+    }
   }
 </script>
 

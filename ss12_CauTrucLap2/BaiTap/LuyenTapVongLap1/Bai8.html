@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Shop Game cũng Dũng </h1>
+<h2>Chào mừng bạn đến với Trò Chơi Đoán Số :)) </h2>
+<b> Nhấn vào nút bên đây để bắt đầu trò chơi : </b>
+<button id="batDau" onclick="doanSo">Bắt đầu</button>
+<script>
+document.getElementById("batDau").onclick = function doanSo(){
+  let number;
+  let count = 3;
+  alert(" khoan khoan...hít thở thật sâu lấy bình tĩnh đi nào.Nhấn ok để chơi.")
+  for(let i = 1; i <= count; i++){
+    number = +prompt("Trò chơi của chúng tôi có 10 số(từ 1 đến 10). Số lượt đoán của bạn là 3");
+    if(number === 9){
+      alert("Chúc mừng bạn đã đoán đúng, bạn thật giỏi. Bạn nhận được 500k :)) ");
+      break;
+    }
+    else if(number > 10 || number < 1 || isNaN(number)){
+      alert("Anh nhắc em... Chơi cho đoàn hoàn vào. Nghỉ chơi luôn đi... :))");
+      break;
+    }
+    else{
+      alert("Sai rồi..Dễ vậy cũng không đoán ra được. Gà...Nhấn ok để đoán lượt tiếp theo");
+    }
+  }
+
+
+}
+</script>
+</body>
+</html>

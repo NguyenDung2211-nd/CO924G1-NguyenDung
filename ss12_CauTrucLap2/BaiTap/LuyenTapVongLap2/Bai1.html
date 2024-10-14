@@ -9,18 +9,14 @@
   let number = 20;
   let num1 = 0;
   let num2 = 1;
-  let total = 0;
+  let result;
   for(let i = 1; i <= number; i++){
-    let result = num1 + num2;
+    result = num1 + num2;
     num1 = num2;
     num2 = result;
     document.write(result);
     document.write("<br>");
-    total = total + result
   }
-  document.write("<br>");
-  document.write(`Tổng = ${total}`);
-
 </script>
 
 </body>

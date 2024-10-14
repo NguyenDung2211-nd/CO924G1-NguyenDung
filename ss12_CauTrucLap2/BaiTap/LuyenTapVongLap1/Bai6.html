@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<script>
+    let count = 0;
+    let num = 2;
+    let isPrime;
+    let total = 0;
+    while (count < 30) {
+        isPrime = true;
+        for (let i = 0; i <= num; i++) {
+            if (num % 7 === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (!isPrime) {
+            document.write(`${num}`);
+            document.write(`<br>`);
+            count++;
+            total = total + num;
+        }
+        num++;
+
+    }
+    document.write(`<br>`);
+    document.write(`Tổng = ${total}`);
+
+</script>
+</body>
+</html>
