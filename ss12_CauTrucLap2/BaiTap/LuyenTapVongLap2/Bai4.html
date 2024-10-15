@@ -9,8 +9,29 @@
 let sao = 7;
 for(let i =1; i <= sao; i++){
     document.write("<br>");
-    for(let j = 21; j >= 0; j--){
-        document.write("*");
+    if(i===1) {
+        for (let j = 21; j >= 1; j--) {
+            document.write("*");
+        }
+    }
+    if(i===7) {
+        for (let j = 21; j >= 0; j--) {
+            document.write("*");
+        }
+    }
+    else {
+        for (let j = 21; j >= 1; j--) {
+            if(j === 21) {
+                document.write("*");
+            }
+            if(j === 1) {
+                document.write("*");
+            }
+            else{
+                document.write("&nbsp&nbsp");
+            }
+
+        }
     }
 }
 </script>
