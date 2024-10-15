@@ -13,6 +13,18 @@
   if(isNaN(a) || isNaN(b) || isNaN(c)){
     alert("Sai yêu cầu");
   }
+  else if(a === 0){
+      if(b === 0 && c === 0){
+          alert("Phương trình vô số nghiệm");
+      }
+      else if(b === 0 && c !== 0){
+          alert("Phương trình vô nghiệm");
+      }
+      else if(b !== 0 ){
+          let x = (-c) / b;
+          alert("x = " + x);
+      }
+  }
   else{
       delta = (b * b)-4 * a * c;
     if(delta < 0){
