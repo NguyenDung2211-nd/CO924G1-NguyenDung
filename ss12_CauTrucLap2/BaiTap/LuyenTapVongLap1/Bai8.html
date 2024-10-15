@@ -13,7 +13,7 @@
 document.getElementById("batDau").onclick = function doanSo(){
   let number;
   let count = 3;
-  alert(" khoan khoan...hít thở thật sâu lấy bình tĩnh đi nào.Nhấn ok để chơi.")
+  alert("Khoan khoan...hít thở thật sâu lấy bình tĩnh đi nào.Nhấn ok để chơi.")
   for(let i = 1; i <= count; i++){
     number = +prompt("Trò chơi của chúng tôi có 10 số(từ 1 đến 10). Số lượt đoán của bạn là 3");
     if(number === 9){
@@ -21,7 +21,7 @@ document.getElementById("batDau").onclick = function doanSo(){
       break;
     }
     else if(number > 10 || number < 1 || isNaN(number)){
-      alert("Anh nhắc em... Chơi cho đoàn hoàn vào. Nghỉ chơi luôn đi... :))");
+      alert("Bíppp... Anh nhắc em. Chơi cho đoàn hoàn vào. Nghỉ chơi luôn đi... :))");
       break;
     }
     else{

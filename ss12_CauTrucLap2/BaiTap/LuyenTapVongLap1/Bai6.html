@@ -6,11 +6,11 @@
 </head>
 <body>
 <script>
-    let count = 0;
+    let count = 1;
     let num = 2;
     let isPrime;
     let total = 0;
-    while (count < 30) {
+    while (count <= 30) {
         isPrime = true;
         for (let i = 0; i <= num; i++) {
             if (num % 7 === 0) {
@@ -19,7 +19,7 @@
             }
         }
         if (!isPrime) {
-            document.write(`${num}`);
+            document.write(`${count}:${num}`);
             document.write(`<br>`);
             count++;
             total = total + num;

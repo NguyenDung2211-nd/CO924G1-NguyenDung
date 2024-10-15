@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+let number = +prompt("Nhập số giai thừa");
+let i = 1;
+let total = 1;
+if(isNaN(number) || number < 1){
+alert("Sai yêu cầu");
+}
+else {
+  while (i <= number) {
+    total = total * i;
+    i++
+  }
+  document.write(`Giai thừa của ${number} là ${total}`);
+}
+</script>
+</body>
+</html>
