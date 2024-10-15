@@ -8,7 +8,7 @@
 <script>
 let sao = 7;
 for(let i =1; i <= sao; i++){
-    document.write("<br>");
+   document.write("<br>");
     if(i===1) {
         for (let j = 21; j >= 1; j--) {
             document.write("*");
@@ -34,6 +34,27 @@ for(let i =1; i <= sao; i++){
         }
     }
 }
+
+
+
+
+//cách 2:
+
+/*let sao = 7;
+for(let i = 1; i <= sao; i++){
+    document.write("<br>");
+    for(let j = 1; j <= 21; j++){
+        if(i === 1 || i === 7 || j === 1 || j === 21){
+            document.write("*");
+        }
+        else{
+            document.write("&nbsp&nbsp")
+        }
+    }
+}*/
+
+
+
 </script>
 </body>
 </html>
