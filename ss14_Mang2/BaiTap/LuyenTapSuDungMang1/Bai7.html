@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let arr = [1, 11, 43, 25, 30, 5, 15, 26, 24, 20];
+  let result ;
+  let v = +prompt("Nhập số nguyên");
+  if(isNaN(v)){
+    alert("Sai yêu cầu");
+  }
+  else {
+    result = arr.includes(v);
+    if (result === true) {
+      arr.splice(result,1);
+      arr.push(0);
+      alert(`${v} đã thuộc mảng số nguyên. Mảng mới : [${arr}]`);
+    } else {
+      alert(`${v}chưa thuộc mảng số nguyên.`);
+    }
+  }
+</script>
+</body>
+</html>

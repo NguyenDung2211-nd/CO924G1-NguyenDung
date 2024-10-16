@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let arr = [1,11,43,25,30,5,15,26,24,20];
+  let maxValue = arr[0];
+  let giaTriTrungBinh ;
+  let sum = 0;
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] > maxValue){
+      maxValue = arr[i];
+    }
+    sum += arr[i];
+  }
+  giaTriTrungBinh = sum / arr.length;
+
+  document.write(`${maxValue} là phần tử lớn nhất và giá trị trung bình là : ${giaTriTrungBinh}`);
+</script>
+</body>
+</html>

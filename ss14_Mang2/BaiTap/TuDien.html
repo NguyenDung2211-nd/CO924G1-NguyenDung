@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Nhập từ :
+<input type="text" id="nhap">
+<button id="dich" onclick="dichTuDien">Dịch</button>
+<p id="ketQua"></p>
+<script>
+  document.getElementById("dich").onclick = function dichTuDien(){
+    let tuMuonDich = document.getElementById("nhap").value;
+    let arrEng = ["banana","orange","apple","pen", "pencil", "book","water"];
+    let arrVie = ["Chuối", "Cam", "Táo", "Bút", "Bút Chì", "Sách","Nước"];
+    let indexEng = 0;
+    for(let i = 0; i < arrEng.length; i++){
+      if(tuMuonDich.toLowerCase() === arrEng[i]){
+        indexEng = i;
+        document.getElementById("ketQua").innerHTML = arrVie[i];
+        break;
+      }
+      else{
+        document.getElementById("ketQua").innerHTML = ("Thứ bạn muốn tìm không có trong từ điển.");
+      }
+    }
+  }
+</script>
+</body>
+</html>
