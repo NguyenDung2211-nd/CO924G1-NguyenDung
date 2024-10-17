@@ -11,15 +11,13 @@
   let v = +prompt("Nhập số nguyên");
   if(isNaN(v)){
     alert("Sai yêu cầu");
-  }
-  else {
+  } else {
     result = arr.includes(v);
     if (result === true) {
       arr.splice(result,1);
-      arr.push(0);
       alert(`${v} đã thuộc mảng số nguyên. Mảng mới : [${arr}]`);
     } else {
-      alert(`${v}chưa thuộc mảng số nguyên.`);
+      alert(`${v} chưa thuộc mảng số nguyên.`);
     }
   }
 </script>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let arr = ["a","b","c","3","1","4","2"];
+  count = 0;
+  let number = arr.filter(char => !isNaN(char));
+  count = number.length;
+  document.write(`${number} <br>`);
+  document.write(`Trong mảng có ${count} kí tự số`);
+
+</script>
+</body>
+</html>
