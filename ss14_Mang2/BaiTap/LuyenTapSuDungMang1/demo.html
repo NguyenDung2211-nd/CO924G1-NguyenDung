@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #content{
+      width : 356px;
+      height : 440px;
+      background-color: aquamarine;
+    }
+    table{
+      border : 1px solid black;
+    }
+    td{
+      border : 1px solid black;
+      height : 30px;
+      width : 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div id="content">
+<div>
+  <h1>Game Caro</h1>
+  <button>Chơi</button>
+</div>
+<div id="result"></div>
+</div>
+<script>
+  display();
+function display() {
+  let tableString = `<table>`;
+  for (let i = 0; i < 10; i++) {
+    tableString += `<tr>`;
+    for (let j = 0; j < 10; j++) {
+      tableString += `<td> </td>`
+    }
+    tableString += `</tr>`;
+  }
+  tableString += `</table>`;
+  document.getElementById("result").innerHTML = tableString;
+}
+
+</script>
+</body>
+</html>
