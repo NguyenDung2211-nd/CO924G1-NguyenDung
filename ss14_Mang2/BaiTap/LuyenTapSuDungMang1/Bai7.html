@@ -13,7 +13,7 @@
     alert("Sai yêu cầu");
   } else {
     result = arr.includes(v);
-    if (result === true) {
+    if (result) {
       arr.splice(result,1);
       alert(`${v} đã thuộc mảng số nguyên. Mảng mới : [${arr}]`);
     } else {
