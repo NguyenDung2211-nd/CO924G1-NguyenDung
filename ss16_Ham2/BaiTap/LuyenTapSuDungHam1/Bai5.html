@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<script>
+    let nhapTenNgoiSao;
+    let indexNgoiSao = 0;
+    let ngoiSao = ["Polaris", "Aldebaran", " Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let chomSaoTuongUng = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+    function timChomSao() {
+        nhapTenNgoiSao = prompt("Mời bạn nhập tên ngôi sao");
+        while (!isNaN(nhapTenNgoiSao)) {
+            nhapTenNgoiSao = prompt("Sai yêu cầu .Mời bạn lại nhập tên ngôi sao");
+        }
+        for (let i = 0; i < ngoiSao.length; i++) {
+            if (nhapTenNgoiSao.toLowerCase() === ngoiSao[i].toLowerCase()) {
+                indexNgoiSao = i;
+                return chomSaoTuongUng[i];
+            }
+        }
+        return "Không có chòm sao tương ứng";
+    }
+
+    alert(timChomSao());
+</script>
+</body>
+</html>

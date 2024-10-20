@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<script>
+  function tinhBinhPhuong(){
+    return a * a;
+  }
+  let a = prompt("Nhập số");
+  while(isNaN(a) || a <= 0){
+    a = prompt("Sai yêu cầu. Nhập lại số");
+  }
+  let result = tinhBinhPhuong();
+  alert(`Bình Phương của ${a} = ${result}`);
+</script>
+</body>
+</html>

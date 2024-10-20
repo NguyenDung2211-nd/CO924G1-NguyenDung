@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<script>
+    let s;
+    function dienTichHinhTron(r){
+        s = 3.14 * (r * r);
+        return s;
+    }
+
+    let c;
+    function chuViHinhTron(r){
+        c = 2 * 3.14 * r;
+        return c;
+    }
+
+    let results = dienTichHinhTron(3);
+    let resultc = chuViHinhTron(3);
+    document.write(`Diện tích hình tròn : ${results}`);
+    document.write(`<br>`);
+    document.write(`Chu vi hình tròn : ${resultc}`);
+</script>
+</body>
+</html>
