@@ -8,9 +8,9 @@
 <script>
 
 let number1 = ["d","s","d","a","d"];
-let kiTu = "d";
+let kiTu = prompt("Nhập 1 kí tự bất kì để kiểm tra");
 let count = 0;
-function myFunction() {
+function kiemTraKiTu() {
 
     for (let i = 0; i < number1.length; i++) {
         if(number1[i] === kiTu){
@@ -18,12 +18,12 @@ function myFunction() {
         }
     }
     if(count > 0){
-        return `Kí tự d có trong mảng và có ${count} lần xuất hiện`;
+        return `Kí tự ${kiTu} có trong mảng và có ${count} lần xuất hiện`;
     }else{
-        return `Kí tự d không có trong mảng. -1`;
+        return `Kí tự ${kiTu} không có trong mảng. -1`;
     }
 
-}alert(myFunction());
+}alert(kiemTraKiTu());
 
 
 </script>
