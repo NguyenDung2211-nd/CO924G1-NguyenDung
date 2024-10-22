@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    class Temperature{
+        doC;
+        constructor(doC){
+            this.doC = doC;
+        }
+        doF(){
+            return 9/5 * this.doC + 32;
+        }
+        kenvin(){
+            return this.doC + 273.15;
+        }
+    }
+    let temperature = new Temperature(25);
+    let myDoF = temperature.doF();
+    let myKenvin = temperature.kenvin();
+    document.write(`Nhiệt độ F : ${myDoF}`);
+    document.write(`<br>`);
+    document.write(`Nhiệt độ K : ${myKenvin}`);
+</script>
 </body>
 </html>
