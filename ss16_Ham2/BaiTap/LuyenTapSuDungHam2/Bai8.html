@@ -9,14 +9,14 @@
     let number = [];
 
     function truyenMangSoNguyen() {
-        for (let i = 0; i <= 5; i++) {
-            number[i] = +prompt("Nhập một mảng số nguyên");
-            if(isNaN(number[i])){
+        for (let i = 1; i <= 6; i++) {
+            number[i] = +prompt(`Nhập một mảng số nguyên (nhập lần lượt 6 số).`);
+            if(isNaN(number[i]) || !Number.isInteger(number[i])){
                 return `Sai yêu cầu.`;
             }
         }
     number.reverse();
-    return `number = [${number}]`;
+    return `Mảng đã được đảo ngược : number = [${number}]`;
     }
 
     alert(truyenMangSoNguyen());
