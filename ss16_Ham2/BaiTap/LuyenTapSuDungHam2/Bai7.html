@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let number1;
+  let number2;
+  let number3;
+  function doiSo(){
+    number1 = +prompt("Nhập số thứ 1");
+    while(isNaN(number1)){
+      number1 = +prompt("Sai yêu cầu. Nhập lại số thứ 1");
+    }
+    number2 = +prompt("Nhập số thứ 2");
+    while(isNaN(number2)){
+      number2 = +prompt("Sai yêu cầu. Nhập lại số thứ 2");
+    }
+    number3 = number1;
+    number1 = number2;
+    number2 = number3;
+    document.write(`Số thứ 1 : ${number1}`);
+    document.write(`<br>`);
+    document.write(`Số thứ 2 : ${number2}`);
+  }
+  doiSo();
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+let number1 = ["d","s","d","a","d"];
+//let number1 = [];
+//for(let j = 0; j < 5; j++){
+//  number1 = prompt("Nhập vào một mảng kí tự");
+// }
+let kiTu = "d";
+let count = 0;
+function myFunction() {
+
+    for (let i = 0; i < number1.length; i++) {
+        if(number1[i] === kiTu){
+            count += 1;
+        }
+    }
+    if(count > 0){
+        return `Kí tự d có trong mảng và có ${count} lần xuất hiện`;
+    }else{
+        return `Kí tự d không có trong mảng. -1`;
+    }
+
+}alert(myFunction());
+
+
+</script>
+</body>
+</html>

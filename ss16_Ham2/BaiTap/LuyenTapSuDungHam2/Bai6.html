@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let number;
+function kiemTraSoDuong(){
+  number = +prompt("Nhập vào một số để kiểm tra số đó có phải số nguyên dương không.");
+  while(isNaN(number)){
+    number = +prompt("Sai yêu cầu .Nhập lại để kiểm tra số đó có phải số nguyên dương không.");
+  }
+  if(number > 0){
+    return true;
+  }else{
+    return false;
+  }
+}
+alert(kiemTraSoDuong());
+</script>
+</body>
+</html>

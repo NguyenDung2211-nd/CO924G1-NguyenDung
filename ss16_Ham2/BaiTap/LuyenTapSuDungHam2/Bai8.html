@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = [];
+
+    function truyenMangSoNguyen() {
+        for (let i = 0; i <= 5; i++) {
+            number[i] = +prompt("Nhập một mảng số nguyên");
+            if(isNaN(number[i])){
+                return `Sai yêu cầu.`;
+            }
+        }
+    number.reverse();
+    return `number = [${number}]`;
+    }
+
+    alert(truyenMangSoNguyen());
+</script>
+</body>
+</html>

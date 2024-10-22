@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number;
+
+    function kiemTraKiTu() {
+        number = prompt("Nhập vào đây để kiểm tra có phải là kí tự số không.");
+        if (!isNaN(number)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    alert(kiemTraKiTu());
+</script>
+</body>
+</html>
