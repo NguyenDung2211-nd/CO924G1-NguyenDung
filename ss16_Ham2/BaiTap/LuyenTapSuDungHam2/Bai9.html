@@ -7,24 +7,28 @@
 <body>
 <script>
 
-let number1 = ["d","s","d","a","d"];
-let kiTu = prompt("Nhập 1 kí tự bất kì để kiểm tra");
-let count = 0;
-function kiemTraKiTu() {
+    function nhap() {
+        let number1 = ["d", "s", "d", "a", "d"];
+        let kiTu = prompt("Nhập 1 kí tự bất kì để kiểm tra");
+        let result = kiemTraKiTu(number1, kiTu);
+        return `${result}`;
+    }
 
-    for (let i = 0; i < number1.length; i++) {
-        if(number1[i] === kiTu){
-            count += 1;
+    function kiemTraKiTu(number1, kiTu) {
+        let count = 0;
+        for (let i = 0; i < number1.length; i++) {
+            if (number1[i] === kiTu) {
+                count += 1;
+            }
+        }
+        if (count > 0) {
+            return `kí tự ${kiTu} có trong mảng và có ${count} lần xuất hiện`;
+        } else {
+            return `Kí tự ${kiTu} không có trong mảng. -1`;
         }
     }
-    if(count > 0){
-        return `Kí tự ${kiTu} có trong mảng và có ${count} lần xuất hiện`;
-    }else{
-        return `Kí tự ${kiTu} không có trong mảng. -1`;
-    }
 
-}alert(kiemTraKiTu());
-
+    alert(nhap());
 
 </script>
 </body>

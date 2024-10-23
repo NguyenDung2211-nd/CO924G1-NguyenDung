@@ -6,21 +6,27 @@
 </head>
 <body>
 <script>
-    let total = 1;
-    let number;
-    function giaiThua(){
-        number = +prompt("Nhập số");
-        while(isNaN(number) || number < 1){
+
+    function nhap() {
+        let number = +prompt("Nhập số");
+        while (isNaN(number) || number < 1) {
             number = +prompt("Sai yêu cầu .Nhập số");
         }
+        let result = giaiThua(number);
+        document.write(`Giai thừa của ${number} = ${result}`);
+    }
+
+    function giaiThua(number) {
+        let total = 1;
         let i = 1
-        while(i <= number){
+        while (i <= number) {
             total = total * i;
             i++;
         }
-        return `Giai thừa của ${number} = ${total}`;
+        return ` ${total}`;
     }
-    alert(giaiThua());
+
+    nhap();
 </script>
 </body>
 </html>

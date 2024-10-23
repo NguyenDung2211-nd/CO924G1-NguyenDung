@@ -6,33 +6,35 @@
 </head>
 <body>
 <script>
-    let number1;
-    let number2;
-    let number3;
-    let minValue;
 
-    function timMin() {
-        number1 = +prompt("Nhập số thứ 1");
+    function nhap(){
+        let number1 = +prompt("Nhập số thứ 1");
         while (isNaN(number1) || number1 < 0) {
             number1 = +prompt("Sai yêu cầu .Nhập số thứ 1");
         }
-        number2 = +prompt("Nhập số thứ 2");
+        let number2 = +prompt("Nhập số thứ 2");
         while (isNaN(number2) || number2 < 0) {
             number2 = +prompt("Sai yêu cầu .Nhập số thứ 2");
         }
-        number3 = +prompt("Nhập số thứ 3");
+        let number3 = +prompt("Nhập số thứ 3");
         while (isNaN(number3) || number3 < 0) {
             number3 = +prompt("Sai yêu cầu .Nhập số thứ 3");
         }
-        minValue = number1;
+        let minValue = timMin(number1, number2, number3);
+        return `Số nhỏ nhất = ${minValue}`;
+    }
+
+    function timMin(number1, number2 , number3) {
+        let minValue = number1;
         if(number2 < minValue){
             minValue = number2;
         }else if(number3 < minValue){
             minValue = number3;
         }
-        return `Số nhỏ nhất là ${minValue}`
+        return `${minValue}`
     }
-    alert(timMin());
+
+    alert(nhap());
 </script>
 </body>
 </html>

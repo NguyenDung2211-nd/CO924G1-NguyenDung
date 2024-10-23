@@ -6,19 +6,25 @@
 </head>
 <body>
 <script>
-  let number;
-function kiemTraSoDuong(){
-  number = +prompt("Nhập vào một số để kiểm tra số đó có phải số nguyên dương không.");
-  while(isNaN(number)){
-    number = +prompt("Sai yêu cầu .Nhập lại để kiểm tra số đó có phải số nguyên dương không.");
+  function nhap(){
+      let number = +prompt("Nhập vào một số để kiểm tra số đó có phải số nguyên dương không.");
+      while(isNaN(number)){
+          number = +prompt("Sai yêu cầu .Nhập lại để kiểm tra số đó có phải số nguyên dương không.");
+      }
+      let result = kiemTraSoDuong(number);
+      if(result){
+          return true;
+      }else{
+          return false;
+      }
   }
+
+function kiemTraSoDuong(number){
   if(number > 0){
     return true;
-  }else{
-    return false;
   }
 }
-alert(kiemTraSoDuong());
+alert(nhap());
 </script>
 </body>
 </html>

@@ -6,17 +6,24 @@
 </head>
 <body>
 <script>
-    let number;
 
-    function kiemTraKiTu() {
-        number = prompt("Nhập vào đây để kiểm tra có phải là kí tự số không.");
-        if (!isNaN(number)) {
+    function nhap(){
+        let number = prompt("Nhập vào đây để kiểm tra có phải là kí tự số không.");
+        let result = kiemTraKiTu(number);
+        if(result){
             return true;
         }else{
             return false;
         }
     }
-    alert(kiemTraKiTu());
+
+    function kiemTraKiTu(number) {
+        if (!isNaN(number)) {
+            return true;
+        }
+    }
+
+    alert(nhap());
 </script>
 </body>
 </html>

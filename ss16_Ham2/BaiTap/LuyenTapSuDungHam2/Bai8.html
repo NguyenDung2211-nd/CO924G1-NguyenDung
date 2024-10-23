@@ -6,20 +6,25 @@
 </head>
 <body>
 <script>
-    let number = [];
 
-    function truyenMangSoNguyen() {
+    function nhap(){
+        let number = [];
         for (let i = 1; i <= 6; i++) {
             number[i] = +prompt(`Nhập một mảng số nguyên (nhập lần lượt 6 số).`);
             if(isNaN(number[i]) || !Number.isInteger(number[i])){
                 return `Sai yêu cầu.`;
             }
         }
-    number.reverse();
-    return `Mảng đã được đảo ngược : number = [${number}]`;
+        let result = truyenMangSoNguyen(number);
+        return `Mảng đã được đảo ngược : number = [${result}]`;
     }
 
-    alert(truyenMangSoNguyen());
+    function truyenMangSoNguyen(number) {
+    number.reverse();
+    return number;
+    }
+
+    alert(nhap());
 </script>
 </body>
 </html>
