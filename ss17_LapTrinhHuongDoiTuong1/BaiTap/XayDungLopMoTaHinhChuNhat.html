@@ -36,13 +36,12 @@
   let myRectangle = new Rectangle(800,400);
   let width = myRectangle.getWidth();
   let height = myRectangle.getHeight();
-
-  myRectangle.setWidth('');
-  myRectangle.getWidth();
-  document.write(myRectangle.getWidth());
-  myRectangle.setHeight('');
-  myRectangle.getHeight();
-  document.write(myRectangle.getHeight());
+  let area = myRectangle.getArea();
+  let perimeter = myRectangle.getPerimeter();
+  document.write(`<br>`);
+  document.write(`Area = ${area}`);
+  document.write(`<br>`);
+  document.write(`Area = ${perimeter}`);
 
   let canvas = document.getElementById("canvas");
   let ctx = canvas.getContext('2d');
