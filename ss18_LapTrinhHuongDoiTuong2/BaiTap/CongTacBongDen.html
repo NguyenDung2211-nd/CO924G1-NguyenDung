@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class BongDen{
+        tinhTrang;
+        constructor(tinhTrang){
+            this.tinhTrang = tinhTrang;
+        }
+        getTinhTrang(){
+            return this.tinhTrang;
+        }
+    }
+
+    class CongTac{
+        den;
+        tinhTrang;
+        constructor(den, tinhTrang){
+            this.den = den;
+            this.tinhTrang = tinhTrang;
+        }
+        congTacTat(){
+            this.den.tinhTrang = false;
+            return this.den.tinhTrang = false;
+        }
+        congTacBat(){
+            this.den.tinhTrang = true;
+            return this.den.tinhTrang = true;
+        }
+    }
+
+    let bongDen = new BongDen();
+    let congTac = new CongTac(bongDen);
+
+    for(let i = 1; i <= 10; i++) {
+        alert(`Công tắc bật lần ${i} ${congTac.congTacBat()}`);
+        alert(`Bóng đèn ${bongDen.getTinhTrang()}`);
+        alert(`Công tắc đóng lần ${i} ${congTac.congTacTat()}`);
+        alert(`Bóng đèn ${bongDen.getTinhTrang()}`);
+    }
+
+</script>
+</body>
+</html>
