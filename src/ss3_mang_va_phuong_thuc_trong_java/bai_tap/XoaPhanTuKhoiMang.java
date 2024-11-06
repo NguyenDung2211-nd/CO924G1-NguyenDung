@@ -29,8 +29,11 @@ public class XoaPhanTuKhoiMang {
             for (int i = indexDelete; i < arr.length - 1; i++) {
                 arr[i] = arr[i + 1];
             }
+
+            arr[arr.length-1] = 0;
+
             System.out.print("Mảng sau khi xoá phần tử " + x + ": ");
-            for (int i = 0; i < arr.length - 1; i++) {
+            for (int i = 0; i < arr.length ; i++) {
                 System.out.print(arr[i] + " ");
             }
         }
