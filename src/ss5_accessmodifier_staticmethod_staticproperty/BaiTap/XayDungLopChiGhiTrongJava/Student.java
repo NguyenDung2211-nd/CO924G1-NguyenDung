@@ -15,11 +15,8 @@ public class Student {
         this.classes = classes;
     }
 
-    public String getName() {
-        return name;
+    public String toString(){
+        return "Student (name = " + name + ", classes = " + classes + ")";
     }
 
-    public String getClasses() {
-        return classes;
-    }
 }
