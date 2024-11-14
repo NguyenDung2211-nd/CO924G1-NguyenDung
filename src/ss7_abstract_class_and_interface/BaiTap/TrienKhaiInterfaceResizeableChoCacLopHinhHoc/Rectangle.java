@@ -1,4 +1,4 @@
-package ss7_abstract_class_and_interface.BaiTap.TrienKhaiInterfaceColorableChoCacLopHinhHoc;
+package ss7_abstract_class_and_interface.BaiTap.TrienKhaiInterfaceResizeableChoCacLopHinhHoc;
 
 public class Rectangle extends Shape implements Resizeable {
     private double width;

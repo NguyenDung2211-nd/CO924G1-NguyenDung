@@ -1,19 +1,18 @@
 package ss7_abstract_class_and_interface.BaiTap.TrienKhaiInterfaceResizeableChoCacLopHinhHoc;
 
-public class Square extends Shape implements Colorable{
+public class Square extends Shape implements Resizeable {
     private double side;
 
-    public Square(double side) {
+    public Square(double side){
         this.side = side;
     }
 
     @Override
-    public double getArea() {
+    public double getArea(){
         return side * side;
     }
 
-    @Override
-    public void howToColor() {
-        System.out.println("Color all four sides.");
+    public void resize(double percent){
+        side += side * percent / 100;
     }
 }
