@@ -8,12 +8,15 @@ public class MyLinkedListTest {
         list.add(20);
         list.add(30);
 
+        list.printList();
         System.out.println("Size: " + list.size());
 
-        System.out.println("Remove 20: " + list.remove(20));
+        list.remove(20);
+        list.printList();
         System.out.println("Size: " + list.size());
 
-        System.out.println("Remove 40: " + list.remove(40));
+        list.remove(40);
+        list.printList();
         System.out.println("Size: " + list.size());
     }
 }

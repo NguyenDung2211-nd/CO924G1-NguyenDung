@@ -47,4 +47,18 @@ public class MyLinkedList {
     public int size() {
         return size;
     }
+
+    public void printList() {
+        if (head == null) {
+            System.out.println("Danh sách rỗng.");
+            return;
+        }
+        Node current = head;
+        System.out.print("Các phần tử trong danh sách: ");
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
 }
