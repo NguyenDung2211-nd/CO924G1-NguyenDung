@@ -21,13 +21,22 @@ public class Main {
                     System.out.println("Sai yêu cầu. số lượng phần tử phải là một số nguyên dương(> 0).");
                 }
             }catch(NumberFormatException e ){
-                System.out.println("Sai yêu cầu. Vui lòng nhập một số nguyên hợp lệ.");
+                System.out.println("Sai yêu cầu. Vui lòng nhập một số nguyên dương hợp lệ.");
             }
         }
 
         for(int i = 0; i < number; i++){
-            System.out.println("Nhập phần tử thứ "+ (i + 1)+ " : ");
-            int value = scanner.nextInt();
+            int value = -1;
+            while(value <= 0){
+                System.out.println("Nhập phần tử thứ "+ (i + 1)+ " : ");
+                try{
+                    value = Integer.parseInt(scanner.nextLine());
+                    break;
+                }catch(NumberFormatException e ){
+                    System.out.println("Sai yêu cầu, vui lòng nhập phần tử là một số nguyên hợp lệ.");
+                }
+            }
+
             soNguyen.push(value);
         }
         System.out.println("Stack hiện tại (sau khi push) : " + soNguyen);

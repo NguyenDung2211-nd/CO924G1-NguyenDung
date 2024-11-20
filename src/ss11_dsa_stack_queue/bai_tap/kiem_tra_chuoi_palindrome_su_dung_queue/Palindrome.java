@@ -2,26 +2,30 @@ package ss11_dsa_stack_queue.bai_tap.kiem_tra_chuoi_palindrome_su_dung_queue;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
-public class PalindromeChecker {
+public class Palindrome {
     public static boolean isPalindrome(String str) {
-        str = str.replaceAll("[^a-zA-Z]", "").toLowerCase();
-
+        str = str.toLowerCase();
         Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
 
-        for (char ch : str.toCharArray()) {
-            queue.add(ch);
-            stack.push(ch);
+        for (int i = 0; i < str.length(); i++) {
+            queue.add(str.charAt(i));
         }
+
+        int end = str.length() - 1;
 
         while (!queue.isEmpty()) {
-            if (queue.poll() != stack.pop()) {
+            char frontChar = queue.poll();
+            char endChar = str.charAt(end);
+
+            if (frontChar != endChar) {
                 return false;
             }
-        }
 
+            end--;
+        }
         return true;
     }
 }
+
+
