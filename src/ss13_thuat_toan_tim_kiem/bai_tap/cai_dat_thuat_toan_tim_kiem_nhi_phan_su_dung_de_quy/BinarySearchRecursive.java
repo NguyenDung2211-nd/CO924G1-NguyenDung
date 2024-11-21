@@ -40,8 +40,17 @@ public class BinarySearchRecursive {
         Arrays.sort(array);
         System.out.println("Mảng sau khi sắp xếp: " + Arrays.toString(array));
 
-        System.out.print("Nhập giá trị cần tìm: ");
-        int value = scanner.nextInt();
+
+        int value;
+        while(true){
+            System.out.print("Nhập giá trị cần tìm: ");
+            try{
+                value = Integer.parseInt(scanner.nextLine());
+                break;
+            }catch(NumberFormatException e ){
+                System.out.println("Sai yêu cầu. Vui lòng nhập một số nguyên hợp lệ.");
+            }
+        }
 
         int result = BinarySearch.binarySearch(array, 0, array.length - 1, value);
 
