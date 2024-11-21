@@ -23,38 +23,19 @@ public class Main {
 
             switch(choice){
                 case 1 :
-                    System.out.println("Nhập id sản phẩm : ");
-                    int id = Integer.parseInt(scanner.nextLine());
-                    System.out.println("Nhập tên sản phẩm : ");
-                    String name = scanner.nextLine();
-                    System.out.println("Nhập giá cho sản phẩm : ");
-                    float price = Float.parseFloat(scanner.nextLine());
-                    Product product = new Product(id, name, price);
-                    productManager.addProduct(product);
+                    addProduct(scanner, productManager);
                     break;
                 case 2:
                     productManager.printProducts();
                     break;
                 case 3:
-                    System.out.println("Nhập id sản phẩm : ");
-                    id = Integer.parseInt(scanner.nextLine());
-                    productManager.deleteProduct(id);
+                    deleteProduct(scanner, productManager);
                     break;
                 case 4:
-                    System.out.println("Nhập tên sản phẩm để tìm kiếm : ");
-                    name = scanner.nextLine();
-                    System.out.println("Kết quả tìm kiếm : ");
-                    productManager.searchProduct(name);
+                    searchProduct(scanner, productManager);
                     break;
                 case 5:
-                    System.out.println("Nhập id của sản phẩm : ");
-                    id = Integer.parseInt(scanner.nextLine());
-                    System.out.println("Sửa thông tin sản phẩm : ");
-                    System.out.println("Sửa lại tên sản phẩm.");
-                    String newName = scanner.nextLine();
-                    System.out.println("Sửa lại giá sản phẩm.");
-                    float newPrice = Float.parseFloat(scanner.nextLine());
-                    productManager.editProduct(id, newName, newPrice);
+                    editProduct(scanner, productManager);
                     break;
                 case 6:
                    productManager.sortByPriceAscending();
@@ -66,10 +47,48 @@ public class Main {
                     break;
                 case 0:
                     System.out.println("Đã Thoát.");
-                    break;
+                    return;
                 default:
                     System.out.println("Chọn chức năng không hợp lệ.");
             }
         }
+    }
+
+    private static void addProduct(Scanner scanner, ProductManager productManager) {
+        System.out.println("Nhập id sản phẩm : ");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập tên sản phẩm : ");
+        String name = scanner.nextLine();
+        System.out.println("Nhập giá cho sản phẩm : ");
+        float price = Float.parseFloat(scanner.nextLine());
+        Product product = new Product(id, name, price);
+        productManager.addProduct(product);
+    }
+
+    private static void deleteProduct(Scanner scanner, ProductManager productManager) {
+        int id;
+        System.out.println("Nhập id sản phẩm : ");
+        id = Integer.parseInt(scanner.nextLine());
+        productManager.deleteProduct(id);
+    }
+
+    private static void searchProduct(Scanner scanner, ProductManager productManager) {
+        String name;
+        System.out.println("Nhập tên sản phẩm để tìm kiếm : ");
+        name = scanner.nextLine();
+        System.out.println("Kết quả tìm kiếm : ");
+        productManager.searchProduct(name);
+    }
+
+    private static void editProduct(Scanner scanner, ProductManager productManager) {
+        int id;
+        System.out.println("Nhập id của sản phẩm : ");
+        id = Integer.parseInt(scanner.nextLine());
+        System.out.println("Sửa thông tin sản phẩm : ");
+        System.out.println("Sửa lại tên sản phẩm.");
+        String newName = scanner.nextLine();
+        System.out.println("Sửa lại giá sản phẩm.");
+        float newPrice = Float.parseFloat(scanner.nextLine());
+        productManager.editProduct(id, newName, newPrice);
     }
 }
