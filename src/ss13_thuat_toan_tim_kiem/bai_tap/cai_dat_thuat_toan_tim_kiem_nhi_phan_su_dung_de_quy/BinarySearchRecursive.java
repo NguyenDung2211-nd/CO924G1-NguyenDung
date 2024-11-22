@@ -40,15 +40,15 @@ public class BinarySearchRecursive {
         Arrays.sort(array);
         System.out.println("Mảng sau khi sắp xếp: " + Arrays.toString(array));
 
-
         int value;
         while(true){
             System.out.print("Nhập giá trị cần tìm: ");
             try{
-                value = Integer.parseInt(scanner.nextLine());
+                value = (scanner.nextInt());
                 break;
-            }catch(NumberFormatException e ){
+            }catch(Exception e ){
                 System.out.println("Sai yêu cầu. Vui lòng nhập một số nguyên hợp lệ.");
+                scanner.nextLine();
             }
         }
 

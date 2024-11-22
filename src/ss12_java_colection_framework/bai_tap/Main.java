@@ -17,6 +17,7 @@ public class Main {
             System.out.println("5. Sửa thông tin sản phẩm (nhập id sản phẩm để sửa).");
             System.out.println("6. Sắp xếp sản phẩm tăng dần theo giá.");
             System.out.println("7. Sắp xếp sản phẩm giảm dần theo giá.");
+            System.out.println("8. Sắp xếp sản phẩm theo tên(cùng tên thì theo giá, cùng giá thì theo id).");
             System.out.println("0. Thoát khỏi chương trình.");
             System.out.println("Vui lòng chọn chức năng : ");
             choice = Integer.parseInt(scanner.nextLine());
@@ -44,6 +45,10 @@ public class Main {
                 case 7:
                    productManager.sortByPriceDescending();
                    productManager.printProducts();
+                    break;
+                case 8:
+                    productManager.sortByNameThenPriceThenId();
+                    productManager.printProducts();
                     break;
                 case 0:
                     System.out.println("Đã Thoát.");
