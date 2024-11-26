@@ -30,10 +30,13 @@ public class Main {
                 edge = Integer.parseInt(scanner.nextLine());
                 if(edge <= 0){
                     System.out.println("Sai yêu cầu. Cạnh của tam giác phải là số nguyên dương ( > 0)");
+                }else{
+                    break;
                 }
             }catch(NumberFormatException e){
                 System.out.println("Sai yêu cầu. Nhập lại một số nguyên hợp lệ");
             }
         }
+        return edge;
     }
 }

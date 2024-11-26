@@ -103,7 +103,7 @@ public class Main {
             Product product = new Product(id, name, price);
             productController.addProduct(product);
         } catch (NumberFormatException e) {
-            System.out.println("Lỗi: Vui lòng nhập giá trị hợp lệ cho id và giá.");
+            System.out.println("Sai yêu cầu. Vui lòng nhập giá trị hợp lệ.");
         } catch (Exception e) {
             System.out.println("Lỗi không xác định khi thêm sản phẩm: " + e.getMessage());
         }
@@ -121,7 +121,7 @@ public class Main {
             int id = Integer.parseInt(getInput(scanner, "Nhập id sản phẩm cần xóa: "));
             productController.deleteProduct(id);
         } catch (NumberFormatException e) {
-            System.out.println("Lỗi: Vui lòng nhập id hợp lệ.");
+            System.out.println("sai yêu cầu. Vui lòng nhập id hợp lệ.");
         } catch (Exception e) {
             System.out.println("Lỗi không xác định khi xóa sản phẩm: " + e.getMessage());
         }
@@ -146,7 +146,7 @@ public class Main {
             productController.findProductById(id).setName(newName);
             productController.findProductById(id).setPrice(newPrice);
         } catch (NumberFormatException e) {
-            System.out.println("Lỗi: Vui lòng nhập giá trị hợp lệ cho id và giá.");
+            System.out.println("Sai yêu cầu. Vui lòng nhập giá trị hợp lệ.");
         } catch (NullPointerException e) {
             System.out.println("Lỗi: Không tìm thấy sản phẩm với id này.");
         } catch (Exception e) {
