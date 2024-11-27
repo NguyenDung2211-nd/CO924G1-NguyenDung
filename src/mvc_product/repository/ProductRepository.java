@@ -15,10 +15,11 @@ public class ProductRepository {
         List<Product> products = new LinkedList<>();
         try (FileReader fileReader = new FileReader(file);
              BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-            String line;
+            String line = "";
+            Product product = null;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] data = line.split(",");
-                Product product = new Product(Integer.parseInt(data[0]), data[1], Float.parseFloat(data[2]));
+                product = new Product(Integer.parseInt(data[0]), data[1], Float.parseFloat(data[2]));
                 products.add(product);
             }
         } catch (FileNotFoundException e) {

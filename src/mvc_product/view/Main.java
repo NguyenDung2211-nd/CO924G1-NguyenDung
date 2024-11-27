@@ -4,6 +4,7 @@ package mvc_product.view;
 import mvc_product.controller.ProductController;
 import mvc_product.entity.Product;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -13,7 +14,6 @@ public class Main {
 
         int choice = 0;
         while (true) {
-            try {
                 System.out.println("Quản lí sản phẩm");
                 System.out.println("1. Thêm sản phẩm.");
                 System.out.println("2. Hiển thị danh sách sản phẩm.");
@@ -58,9 +58,6 @@ public class Main {
                     default:
                         System.out.println("Chọn chức năng không hợp lệ.");
                 }
-            } catch (Exception e) {
-                System.out.println("Đã xảy ra lỗi: " + e.getMessage());
-            }
         }
     }
 
@@ -135,11 +132,21 @@ public class Main {
     }
 
     private static void printProducts(ProductController productController) {
+        try {
+            List<Product> products = productController.getAllProducts();
+            if (products == null || products.isEmpty()) {
+                System.out.println("Danh sách sản phẩm hiện đang trống.");
+                return;
+            }
             System.out.println("Danh sách sản phẩm:");
-            for (Product product : productController.getAllProducts()) {
+            for (Product product : products) {
                 System.out.println(product);
             }
+        } catch (Exception e) {
+            System.out.println("Đã xảy ra lỗi khi hiển thị sản phẩm: ");
+        }
     }
+
 
     private static void deleteProduct(Scanner scanner, ProductController productController) {
         int id = 0;
@@ -176,54 +183,33 @@ public class Main {
     }
 
     private static void searchProduct(Scanner scanner, ProductController productController) {
-        try {
             String name = getInput(scanner, "Nhập tên sản phẩm cần tìm: ");
             for (Product product : productController.findProductByName(name)) {
                 System.out.println(product);
             }
-        } catch (Exception e) {
-            System.out.println("Lỗi khi tìm kiếm sản phẩm: " + e.getMessage());
-        }
     }
 
     private static void editProduct(Scanner scanner, ProductController productController) {
-        try {
             int id = Integer.parseInt(getInput(scanner, "Nhập id sản phẩm cần sửa: "));
             String newName = getInput(scanner, "Nhập tên sản phẩm mới: ");
             float newPrice = Float.parseFloat(getInput(scanner, "Nhập giá sản phẩm mới: "));
             productController.findProductById(id).setName(newName);
             productController.findProductById(id).setPrice(newPrice);
-        } catch (NumberFormatException e) {
-            System.out.println("Sai yêu cầu. Vui lòng nhập giá trị hợp lệ.");
-        } catch (NullPointerException e) {
-            System.out.println("Lỗi: Không tìm thấy sản phẩm với id này.");
-        } catch (Exception e) {
-            System.out.println("Lỗi khi sửa sản phẩm: " + e.getMessage());
-        }
     }
 
     private static void sortByPriceAscending(ProductController productController) {
-        try {
             productController.getAllProducts().sort((p1, p2) -> Float.compare(p1.getPrice(), p2.getPrice()));
             System.out.println("Danh sách sản phẩm sau khi sắp xếp theo giá tăng dần:");
             printProducts(productController);
-        } catch (Exception e) {
-            System.out.println("Lỗi khi sắp xếp sản phẩm theo giá tăng dần: " + e.getMessage());
-        }
     }
 
     private static void sortByPriceDescending(ProductController productController) {
-        try {
             productController.getAllProducts().sort((p1, p2) -> Float.compare(p2.getPrice(), p1.getPrice()));
             System.out.println("Danh sách sản phẩm sau khi sắp xếp theo giá giảm dần:");
             printProducts(productController);
-        } catch (Exception e) {
-            System.out.println("Lỗi khi sắp xếp sản phẩm theo giá giảm dần: " + e.getMessage());
-        }
     }
 
     private static void sortByNameThenPriceThenId(ProductController productController) {
-        try {
             productController.getAllProducts().sort((p1, p2) -> {
                 int nameCompare = p1.getName().compareTo(p2.getName());
                 if (nameCompare != 0) return nameCompare;
@@ -233,8 +219,5 @@ public class Main {
             });
             System.out.println("Danh sách sản phẩm sau khi sắp xếp theo tên, giá, và id:");
             printProducts(productController);
-        } catch (Exception e) {
-            System.out.println("Lỗi khi sắp xếp sản phẩm.");
-        }
     }
 }
