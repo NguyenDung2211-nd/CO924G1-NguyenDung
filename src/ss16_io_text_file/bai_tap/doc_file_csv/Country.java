@@ -1,4 +1,4 @@
-package ss15_io_text_file.bai_tap.doc_file_csv;
+package ss16_io_text_file.bai_tap.doc_file_csv;
 
 public class Country {
     private int id;
@@ -40,10 +40,6 @@ public class Country {
 
     @Override
     public String toString() {
-        return "Country{" +
-                "id=" + id +
-                ", code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                '}';
+        return "Country(" + " id = " + id + ", code = " + code + ", name = " + name + ")";
     }
 }

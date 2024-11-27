@@ -1,4 +1,4 @@
-package ss15_io_text_file.bai_tap.copy_file_text;
+package ss16_io_text_file.bai_tap.copy_file_text;
 
 import java.io.*;
 import java.util.Scanner;

@@ -96,17 +96,42 @@ public class Main {
     }
 
     private static void addProduct(Scanner scanner, ProductController productController) {
-        try {
-            int id = Integer.parseInt(getInput(scanner, "Nhập id sản phẩm : "));
-            String name = getInput(scanner, "Nhập tên sản phẩm : ");
-            float price = Float.parseFloat(getInput(scanner, "Nhập giá cho sản phẩm : "));
-            Product product = new Product(id, name, price);
-            productController.addProduct(product);
-        } catch (NumberFormatException e) {
-            System.out.println("Sai yêu cầu. Vui lòng nhập giá trị hợp lệ.");
-        } catch (Exception e) {
-            System.out.println("Lỗi không xác định khi thêm sản phẩm: " + e.getMessage());
+        int id = 0;
+        while(true) {
+            try {
+                id = Integer.parseInt(getInput(scanner, "Nhập id sản phẩm : "));
+                if(id <= 0){
+                    System.out.println("Sai yêu cầu. id phải là một số nguyên dương (> 0).");
+                }else{
+                    break;
+                }
+            }catch(NumberFormatException e){
+                System.out.println("Sai yêu cầu. id phải là 1 số nguyên dương.");
+            }catch(Exception e){
+                System.out.println("Lỗi không xác định.");
+            }
         }
+
+        String name = getInput(scanner, "Nhập tên sản phẩm : ");
+
+        float price = 0;
+        while(true) {
+            try {
+                price = Float.parseFloat(getInput(scanner, "Nhập giá cho sản phẩm : "));
+                if(price <= 0){
+                    System.out.println("Sai yêu cầu. Giá sản phẩm không phải là số âm (free càng không nha :))).");
+                }else{
+                    break;
+                }
+            }catch(NumberFormatException e){
+                System.out.println("Sai yêu cầu. giá sản phẩm phải là 1 số .");
+            }catch(Exception e){
+                System.out.println("Lỗi không xác định.");
+            }
+        }
+
+        Product product = new Product(id, name, price);
+        productController.addProduct(product);
     }
 
     private static void printProducts(ProductController productController) {
@@ -117,13 +142,36 @@ public class Main {
     }
 
     private static void deleteProduct(Scanner scanner, ProductController productController) {
-        try {
-            int id = Integer.parseInt(getInput(scanner, "Nhập id sản phẩm cần xóa: "));
-            productController.deleteProduct(id);
-        } catch (NumberFormatException e) {
-            System.out.println("sai yêu cầu. Vui lòng nhập id hợp lệ.");
-        } catch (Exception e) {
-            System.out.println("Lỗi không xác định khi xóa sản phẩm: " + e.getMessage());
+        int id = 0;
+        while(true) {
+            try {
+                id = Integer.parseInt(getInput(scanner, "Nhập id sản phẩm cần xóa: "));
+                if(id <= 0){
+                    System.out.println("Sai yêu cầu. id phải là một số nguyên dương (> 0).");
+                }else{
+                    break;
+                }
+            }catch(NumberFormatException e){
+                System.out.println("Sai yêu cầu. id phải là 1 số nguyên dương.");
+            }catch(Exception e){
+                System.out.println("Lỗi không xác định.");
+            }
+        }
+        Product product = productController.findProductById(id);
+        if (product == null) {
+            System.out.println("Không tìm thấy sản phẩm có id là: " + id);
+        } else {
+            System.out.println("Thông tin sản phẩm cần xóa: " + product + ".\nBạn có chắc muốn xóa sản phẩm này không? " +
+                    "\nLưu ý: Hành động này không thể hoàn tác.");
+            System.out.println("Bấm 'y' để xác nhận. Bấm phím bất kỳ để hủy.");
+
+            char confirm = scanner.nextLine().charAt(0);
+            if (confirm == 'y') {
+                productController.deleteProduct(id);
+                System.out.println("Xóa thành công sản phẩm có id: " + id);
+            } else {
+                System.out.println("Hủy xóa sản phẩm.");
+            }
         }
     }
 
