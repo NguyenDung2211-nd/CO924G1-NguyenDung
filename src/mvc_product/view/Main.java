@@ -69,9 +69,9 @@ public class Main {
                 choice = Integer.parseInt(scanner.nextLine());
                 return choice;
             } catch (NumberFormatException e) {
-                System.out.println("Choice phải là số.");
+                System.out.println("Lựa chọn phải là số.");
             } catch (Exception e) {
-                System.out.println("Lỗi không xác định: " + e.getMessage());
+                System.out.println("Lỗi không xác định: " );
             }
         }
     }
@@ -87,7 +87,7 @@ public class Main {
                 }
                 return input;
             } catch (Exception e) {
-                System.out.println("Lỗi: " + e.getMessage());
+                System.out.println("Lỗi: " );
             }
         }
     }
@@ -132,8 +132,7 @@ public class Main {
     }
 
     private static void printProducts(ProductController productController) {
-        try {
-            List<Product> products = productController.getAllProducts();
+            List<Product> products = productController.printProducts();
             if (products == null || products.isEmpty()) {
                 System.out.println("Danh sách sản phẩm hiện đang trống.");
                 return;
@@ -142,9 +141,6 @@ public class Main {
             for (Product product : products) {
                 System.out.println(product);
             }
-        } catch (Exception e) {
-            System.out.println("Đã xảy ra lỗi khi hiển thị sản phẩm: ");
-        }
     }
 
 
@@ -198,19 +194,19 @@ public class Main {
     }
 
     private static void sortByPriceAscending(ProductController productController) {
-            productController.getAllProducts().sort((p1, p2) -> Float.compare(p1.getPrice(), p2.getPrice()));
+            productController.printProducts().sort((p1, p2) -> Float.compare(p1.getPrice(), p2.getPrice()));
             System.out.println("Danh sách sản phẩm sau khi sắp xếp theo giá tăng dần:");
             printProducts(productController);
     }
 
     private static void sortByPriceDescending(ProductController productController) {
-            productController.getAllProducts().sort((p1, p2) -> Float.compare(p2.getPrice(), p1.getPrice()));
+            productController.printProducts().sort((p1, p2) -> Float.compare(p2.getPrice(), p1.getPrice()));
             System.out.println("Danh sách sản phẩm sau khi sắp xếp theo giá giảm dần:");
             printProducts(productController);
     }
 
     private static void sortByNameThenPriceThenId(ProductController productController) {
-            productController.getAllProducts().sort((p1, p2) -> {
+            productController.printProducts().sort((p1, p2) -> {
                 int nameCompare = p1.getName().compareTo(p2.getName());
                 if (nameCompare != 0) return nameCompare;
                 int priceCompare = Float.compare(p1.getPrice(), p2.getPrice());

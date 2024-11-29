@@ -20,7 +20,7 @@ public class ProductController {
             System.out.println("Sản phẩm đã được xóa thành công.");
     }
 
-    public List<Product> getAllProducts() {
+    public List<Product> printProducts() {
             return productService.getAllProducts();
     }
 

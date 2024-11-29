@@ -19,8 +19,8 @@ public class Main {
             System.out.println("7. Sắp xếp sản phẩm giảm dần theo giá.");
             System.out.println("8. Sắp xếp sản phẩm theo tên(cùng tên thì theo giá, cùng giá thì theo id).");
             System.out.println("0. Thoát khỏi chương trình.");
-            System.out.println("Vui lòng chọn chức năng : ");
-            choice = Integer.parseInt(scanner.nextLine());
+
+            choice = getChoice(scanner);
 
             switch(choice){
                 case 1 :
@@ -95,5 +95,20 @@ public class Main {
         System.out.println("Sửa lại giá sản phẩm.");
         float newPrice = Float.parseFloat(scanner.nextLine());
         productManager.editProduct(id, newName, newPrice);
+    }
+
+    private static int getChoice(Scanner scanner) {
+        int choice = 0;
+        while (true) {
+            try {
+                System.out.print("Mời bạn nhập lựa chọn: ");
+                choice = Integer.parseInt(scanner.nextLine());
+                return choice;
+            } catch (NumberFormatException e) {
+                System.out.println("Lựa chọn phải là số.");
+            } catch (Exception e) {
+                System.out.println("Lỗi không xác định: " + e.getMessage());
+            }
+        }
     }
 }
