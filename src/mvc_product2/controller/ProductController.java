@@ -29,6 +29,7 @@ public class ProductController {
     public void searchProduct(String name) {
         List<Product> foundProducts = productService.searchProduct(name);
         if (!foundProducts.isEmpty()) {
+            System.out.println("Tìm thấy " + foundProducts.size() + " sản phẩm:");
             foundProducts.forEach(System.out::println);  
         } else {
             System.out.println("Không tìm thấy sản phẩm.");
@@ -47,8 +48,8 @@ public class ProductController {
         productService.sortByPriceDescending();
     }
 
-    public void sortByNameThenPriceThenId() {
-        productService.sortByNameThenPriceThenId();
+    public void sortByNameThenId() {
+        productService.sortByNameThenId();
     }
 
     public boolean isIdExist(int id) {
@@ -58,8 +59,4 @@ public class ProductController {
     public Product getProductById(int id) {
         return productService.getProductById(id);
     }
-
-
-
-
 }

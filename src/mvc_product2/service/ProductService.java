@@ -12,7 +12,7 @@ public interface ProductService {
     void editProduct(int id, String name, float price);
     void sortByPriceAscending();
     void sortByPriceDescending();
-    void sortByNameThenPriceThenId();
+    void sortByNameThenId();
     boolean isIdExist(int id);
     Product getProductById(int id);
 }

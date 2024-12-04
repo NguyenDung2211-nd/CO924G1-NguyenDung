@@ -5,7 +5,6 @@ import mvc_product2.repository.ProductRepository;
 import mvc_product2.service.ProductService;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class ProductServiceImpl implements ProductService {
@@ -61,44 +60,27 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void editProduct(int id, String name, float price) {
-        Product product = productRepository.getProductById(id);
-        if (product != null) {
-            product.setName(name);
-            product.setPrice(price);
-            System.out.println("Sửa sản phẩm thành công.");
-        } else {
-            System.out.println("Không tìm thấy sản phẩm.");
-        }
+        productRepository.editProduct(id, name, price);
     }
 
     @Override
     public void sortByPriceAscending() {
-        List<Product> products = productRepository.getAllProducts();
-        products.sort(Comparator.comparing(Product::getPrice));
+        productRepository.sortByPriceAscending();
         System.out.println("Sắp xếp tăng dần theo giá thành công.");
     }
 
     @Override
     public void sortByPriceDescending() {
-        List<Product> products = productRepository.getAllProducts();
-        products.sort(Comparator.comparing(Product::getPrice).reversed());
+        productRepository.sortByPriceDescending();
         System.out.println("Sắp xếp giảm dần theo giá thành công.");
     }
 
     @Override
-    public void sortByNameThenPriceThenId() {
-        List<Product> products = productRepository.getAllProducts();
-        products.sort((p1, p2) -> {
-            int nameComparison = p1.getName().compareTo(p2.getName());
-            if (nameComparison != 0) return nameComparison;
-
-            int priceComparison = Float.compare(p1.getPrice(), p2.getPrice());
-            if (priceComparison != 0) return priceComparison;
-
-            return Integer.compare(p1.getId(), p2.getId());
-        });
-        System.out.println("Sắp xếp sản phẩm theo tên (A-Z) -> giá -> id thành công.");
+    public void sortByNameThenId() {
+        productRepository.sortByNameThenId();
+        System.out.println("Sắp xếp sản phẩm theo tên (A-Z) -> ID thành công.");
     }
+
 
     @Override
     public boolean isIdExist(int id) {
@@ -107,15 +89,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProductById(int id) {
-        List<Product> products = productRepository.getAllProducts();
-        for (Product product : products) {
-            if (product.getId() == id) {
-                return product;
-            }
-        }
-        return null;
+        return productRepository.getProductById(id);
     }
-
-
 
 }

@@ -1,6 +1,7 @@
 package mvc_product2.view;
 
 import mvc_product2.controller.ProductController;
+import mvc_product2.entity.Product;
 
 import java.util.Scanner;
 
@@ -42,12 +43,15 @@ public class Main {
                     break;
                 case 6:
                     productController.sortByPriceAscending();
+                    productController.printProducts();
                     break;
                 case 7:
                     productController.sortByPriceDescending();
+                    productController.printProducts();
                     break;
                 case 8:
-                    productController.sortByNameThenPriceThenId();
+                    productController.sortByNameThenId();
+                    productController.printProducts();
                     break;
                 case 0:
                     System.out.println("Đã Thoát.");
@@ -132,7 +136,21 @@ public class Main {
                 System.out.println("Lỗi không xác định.");
             }
         }
-        productController.deleteProduct(id);
+        Product product = productController.getProductById(id);
+        if(product == null){
+            System.out.println("Không tìm thấy sản phẩm có id là " + id);
+        }else{
+            System.out.println("Thông tin sản phầm cần xóa : " + product +".\nBạn có chắc muốn xóa sản phẩm này không? " + "\n Lưu ý hành động này không thể hoàn tác.");
+            System.out.println("Bấm y để xác nhận xóa. Bấm phím bất kì để hủy.");
+
+            char confirm = scanner.nextLine().charAt(0);
+
+            if(confirm == 'y'){
+                productController.deleteProduct(id);
+            }else{
+                System.out.println("Hủy xóa sản phẩm.");
+            }
+        }
     }
 
     private static void searchProduct(Scanner scanner, ProductController productController) {

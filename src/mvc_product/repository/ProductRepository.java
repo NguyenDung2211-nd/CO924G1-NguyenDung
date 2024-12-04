@@ -15,7 +15,7 @@ public class ProductRepository {
         List<Product> products = new LinkedList<>();
         try (FileReader fileReader = new FileReader(file);
              BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-            String line = "";
+            String line = bufferedReader.toString();
             Product product = null;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] data = line.split(",");
