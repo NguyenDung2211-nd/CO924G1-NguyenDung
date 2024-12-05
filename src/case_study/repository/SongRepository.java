@@ -16,7 +16,7 @@ public class SongRepository {
         songs = new ArrayList<>();
     }
 
-    public void addSong(Song song){
+    public void add(Song song){
         try(FileWriter fileWriter = new FileWriter(FILE_PATH, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)){
             bufferedWriter.write(song.getId()+ ","+song.getName() + ","+ song.getSinger() + "," + song.getGenre() + "," + song.getReleaseYear());
@@ -27,7 +27,7 @@ public class SongRepository {
         songs.add(song);
     }
 
-    public List<Song> getAllSong() {
+    public List<Song> getAll() {
         List<Song> songsFromFile = new LinkedList<>();
         File file = new File(FILE_PATH);
         try (FileReader fileReader = new FileReader(file);
@@ -44,49 +44,33 @@ public class SongRepository {
         return songsFromFile;
     }
 
-    public void deleteSong(int id) {
-        List<Song> songs = getAllSong();
-        boolean found = false;
-
+    public void delete(int id) {
+        List<Song> songs = getAll();
         for (int i = 0; i < songs.size(); i++) {
             if (songs.get(i).getId() == id) {
                 songs.remove(i);
-                found = true;
                 break;
             }
         }
-
-        if (found) {
-            saveAll(songs);
-            System.out.println("Đã xóa bài thành công.");
-        } else {
-            System.out.println("Không tìm thấy bài hát để xóa.");
-        }
+        saveAll(songs);
+        System.out.println("Xóa bài hát thành công.");
     }
 
-    public void editSong(int id, String newName, String newSinger, String newGenre, int newReleaseYear) {
-        List<Song> songs = getAllSong();
-        boolean found = false;
-        for (Song song : songs) {
-            if (song.getId() == id) {
-                song.setName(newName);
-                song.setSinger(newSinger);
-                song.setGenre(newGenre);
-                song.setReleaseYear(newReleaseYear);
-                found = true;
+    public void edit(Song editSong) {
+        List<Song> songs = getAll();
+        for (int i = 0; i < songs.size(); i++) {
+            Song song = songs.get(i);
+            if (song.getId() == editSong.getId()) {
+                songs.set(i, editSong);
                 break;
             }
         }
-        if (found) {
-            saveAll(songs);
-            System.out.println("Bài hát đã được sửa thành công.");
-        } else {
-            System.out.println("Không tìm thấy bài hát với ID: " + id);
-        }
+        saveAll(songs);
+        System.out.println("Bài hát được sửa thành công.");
     }
 
     public void sortByNameThenId() {
-        List<Song> songs = getAllSong();
+        List<Song> songs = getAll();
         songs.sort((p1, p2) -> {
             int nameComparison = p1.getName().compareToIgnoreCase(p2.getName());
             if (nameComparison != 0) {
@@ -111,9 +95,10 @@ public class SongRepository {
         }
     }
 
-    public Song getSongById(int id){
-        for(Song song : getAllSong()){
-            if(song.getId() == id){
+    public Song getById(int id){
+        List<Song> songs = getAll();
+        for (Song song: songs) {
+            if (song.getId() == id) {
                 return song;
             }
         }
@@ -121,7 +106,7 @@ public class SongRepository {
     }
 
     public boolean isIdExist(int id){
-        for(Song song : getAllSong()){
+        for(Song song : getAll()){
             if(song.getId() == id ){
                 return true;
             }

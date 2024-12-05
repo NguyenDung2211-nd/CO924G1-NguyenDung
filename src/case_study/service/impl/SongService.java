@@ -15,18 +15,18 @@ public class SongService implements ISongService {
     }
 
     @Override
-    public void addSong(Song song){
+    public void add(Song song){
         if(songRepository.isIdExist(song.getId())){
             System.out.println("Bài hát với id " + song.getId() + " đã tồn tại.");
         }else{
-            songRepository.addSong(song);
+            songRepository.add(song);
             System.out.println("Thêm bài hát thành công.");
         }
     }
 
     @Override
-    public void printSong(){
-        List<Song> songs = songRepository.getAllSong();
+    public void print(){
+        List<Song> songs = songRepository.getAll();
         if(songs.isEmpty()){
             System.out.println("Danh sách bài hát rỗng.");
         }else{
@@ -36,20 +36,15 @@ public class SongService implements ISongService {
     }
 
     @Override
-    public void deleteSong(int id){
-        Song song = songRepository.getSongById(id);
-        if (song != null) {
-            songRepository.deleteSong(id);
-            System.out.println("Xóa sản phẩm thành công.");
-        } else {
-            System.out.println("Sản phẩm với ID " + id + " không tồn tại.");
-        }
+    public void delete(int id){
+         songRepository.getById(id);
+         songRepository.delete(id);
     }
 
     @Override
-    public List<Song> searchSong(String name) {
+    public List<Song> search(String name) {
         List<Song> result = new ArrayList<>();
-        for (Song song : songRepository.getAllSong()) {
+        for (Song song : songRepository.getAll()) {
             if (song.getName().toLowerCase().contains(name.toLowerCase())) {
                 result.add(song);
             }
@@ -58,8 +53,8 @@ public class SongService implements ISongService {
     }
 
     @Override
-    public void editSong(int id, String name, String singer, String genre, int releaseYear){
-        songRepository.editSong(id, name, singer, genre, releaseYear);
+    public void edit(int id, Song song){
+        songRepository.edit(song);
     }
 
     @Override
@@ -74,7 +69,7 @@ public class SongService implements ISongService {
     }
 
     @Override
-    public Song getSongById(int id){
-        return songRepository.getSongById(id);
+    public Song getById(int id){
+        return songRepository.getById(id);
     }
 }

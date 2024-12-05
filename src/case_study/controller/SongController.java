@@ -13,21 +13,21 @@ public class SongController {
         this.songService = new SongService();
     }
 
-    public void addSong(int id, String name, String singer, String genre, int releaseYear){
+    public void add(int id, String name, String singer, String genre, int releaseYear){
         Song song = new Song(id, name, singer, genre, releaseYear );
-        songService.addSong(song);
+        songService.add(song);
     }
 
-    public void printSong(){
-        songService.printSong();
+    public void print(){
+        songService.print();
     }
 
-    public void deleteSong(int id){
-        songService.deleteSong(id);
+    public void delete(int id){
+        songService.delete(id);
     }
 
-    public void searchSong(String name) {
-        List<Song> foundSong = songService.searchSong(name);
+    public void search(String name) {
+        List<Song> foundSong = songService.search(name);
         if (!foundSong.isEmpty()) {
             System.out.println("Tìm thấy " + foundSong.size() + " bài hát :");
             foundSong.forEach(System.out::println);
@@ -36,8 +36,9 @@ public class SongController {
         }
     }
 
-    public void editSong(int id, String name, String singer, String genre, int releaseYear){
-        songService.editSong(id, name, singer, genre, releaseYear);
+    public void edit(int id, String name, String singer, String genre, int releaseYear){
+        Song song = new Song(id, name, singer, genre, releaseYear);
+        songService.edit(id, song);
     }
 
     public void sortByNameThenId(){
@@ -48,7 +49,7 @@ public class SongController {
         return songService.isIdExist(id);
     }
 
-    public Song getSongById(int id) {
-        return songService.getSongById(id);
+    public Song getById(int id) {
+        return songService.getById(id);
     }
 }

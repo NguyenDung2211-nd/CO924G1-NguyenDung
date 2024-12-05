@@ -56,7 +56,7 @@ public class Main {
                     addSong(scanner, songController);
                     break;
                 case 2:
-                    songController.printSong();
+                    songController.print();
                     break;
                 case 3:
                     deleteSong(scanner, songController);
@@ -69,7 +69,7 @@ public class Main {
                     break;
                 case 6:
                     songController.sortByNameThenId();
-                    songController.printSong();
+                    songController.print();
                     break;
                 case 0:
                     System.out.println("Đã thoát.");
@@ -123,7 +123,7 @@ public class Main {
                 System.out.println("Sai yêu cầu. Năm sản xuất phải là một số.");
             }
         }
-        songController.addSong(id, name, singer, genre, releaseYear);
+        songController.add(id, name, singer, genre, releaseYear);
     }
 
     private static void deleteSong(Scanner scanner, SongController songController) {
@@ -143,9 +143,9 @@ public class Main {
                 System.out.println("Lỗi không xác định.");
             }
         }
-        Song song = songController.getSongById(id);
+        Song song = songController.getById(id);
         if(song == null){
-            System.out.println("Không tìm thấy bài hát có id là " + id);
+            System.out.println("Không tìm thấy bài hát có id là " + id +".");
         }else{
             System.out.println("Thông tin bài hát cần xóa : " + song +".\nBạn có chắc muốn xóa bài hát này không? " + "\n Lưu ý hành động này không thể hoàn tác.");
             System.out.println("Bấm y để xác nhận xóa. Bấm phím bất kì để hủy.");
@@ -153,9 +153,9 @@ public class Main {
             char confirm = scanner.nextLine().charAt(0);
 
             if(confirm == 'y'){
-                songController.deleteSong(id);
+                songController.delete(id);
             }else{
-                System.out.println("Hủy xóa sản phẩm.");
+                System.out.println("Hủy xóa bài hát.");
             }
         }
     }
@@ -163,7 +163,7 @@ public class Main {
     private static void searchSong(Scanner scanner, SongController songController) {
         System.out.print("Nhập tên bài hát cần tìm: ");
         String name = scanner.nextLine();
-        songController.searchSong(name);
+        songController.search(name);
     }
 
     private static void editSong(Scanner scanner, SongController songController) {
@@ -176,7 +176,7 @@ public class Main {
                     System.out.println("Sai yêu cầu. id phải là một số nguyên dương (> 0).");
                     continue;
                 }
-                if (songController.getSongById(id) == null) {
+                if (songController.getById(id) == null) {
                     System.out.println("Không tìm thấy bài hát với Id: " + id);
                     continue;
                 }
@@ -213,7 +213,7 @@ public class Main {
                 System.out.println("Lỗi không xác định.");
             }
         }
-        songController.editSong(id, name, singer, genre, releaseYear);
+        songController.edit(id, name, singer, genre, releaseYear);
     }
 
     private static void managerPlaylist(Scanner scanner){

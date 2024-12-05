@@ -1,4 +1,6 @@
 package case_study.service;
 
-public interface IPlaylistService extends IService{
+import case_study.entity.Playlist;
+
+public interface IPlaylistService extends IService<Playlist> {
 }
