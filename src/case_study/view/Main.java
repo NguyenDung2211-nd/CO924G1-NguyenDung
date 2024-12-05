@@ -216,6 +216,8 @@ public class Main {
         songController.edit(id, name, singer, genre, releaseYear);
     }
 
+
+
     private static void managerPlaylist(Scanner scanner){
         int choice = 0;
         while(true){
@@ -266,9 +268,5 @@ public class Main {
             }
         }
     }
-
-
-
-
-
+    
 }

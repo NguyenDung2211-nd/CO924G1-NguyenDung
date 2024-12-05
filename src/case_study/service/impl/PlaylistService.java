@@ -1,7 +1,6 @@
 package case_study.service.impl;
 
 import case_study.entity.Playlist;
-import case_study.entity.Song;
 import case_study.service.IPlaylistService;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public class PlaylistService implements IPlaylistService {
     }
 
     @Override
-    public Song getById(int id) {
+    public Playlist getById(int id) {
         return null;
     }
 

@@ -45,7 +45,7 @@ public class SongService implements ISongService {
     public List<Song> search(String name) {
         List<Song> result = new ArrayList<>();
         for (Song song : songRepository.getAll()) {
-            if (song.getName().toLowerCase().contains(name.toLowerCase())) {
+            if (song.getName().equalsIgnoreCase(name)) {
                 result.add(song);
             }
         }

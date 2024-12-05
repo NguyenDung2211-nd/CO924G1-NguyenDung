@@ -7,7 +7,7 @@ import case_study.service.impl.SongService;
 import java.util.List;
 
 public class SongController {
-    private IService songService;
+    private IService<Song> songService;
 
     public SongController(){
         this.songService = new SongService();
@@ -17,6 +17,7 @@ public class SongController {
         Song song = new Song(id, name, singer, genre, releaseYear );
         songService.add(song);
     }
+
 
     public void print(){
         songService.print();
