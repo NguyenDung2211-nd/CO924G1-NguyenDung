@@ -10,7 +10,7 @@ import java.util.List;
 public class SongRepository {
     private List<Song> songs;
 
-    private static final String FILE_PATH ="src/case_study/data/songData.csv";
+    private static final String FILE_PATH ="src/case_study/data/SongData2.csv";
 
     public SongRepository() {
         songs = new ArrayList<>();

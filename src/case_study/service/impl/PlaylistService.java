@@ -1,17 +1,37 @@
 package case_study.service.impl;
 
 import case_study.entity.Playlist;
+import case_study.repository.PlaylistRepository;
 import case_study.service.IPlaylistService;
 
 import java.util.List;
 
 public class PlaylistService implements IPlaylistService {
+    private PlaylistRepository playlistRepository;
+
+    public PlaylistService() {
+        this.playlistRepository = new PlaylistRepository();
+    }
     @Override
-    public void add(Playlist song) {
+    public void add(Playlist playlist) {
+        if(playlistRepository.isIdExist(playlist.getId())){
+            System.out.println("Danh sách phát với id " + playlist.getId() + " đã tồn tại.");
+        }else{
+            playlistRepository.add(playlist);
+        }
     }
 
     @Override
     public void print() {
+        List<Playlist> playlists = playlistRepository.getAll();
+        if(playlists.isEmpty()){
+            System.out.println("Danh sách phát rỗng.");
+        }else{
+            System.out.println("Danh Sách phát hiện tại : ");
+            for (Playlist playlist : playlists) {
+                System.out.println(playlist.getId() + ". " + playlist.getName());
+            }
+        }
     }
 
     @Override
@@ -21,11 +41,13 @@ public class PlaylistService implements IPlaylistService {
 
     @Override
     public Playlist getById(int id) {
-        return null;
+        return playlistRepository.getById(id);
     }
 
     @Override
     public void delete(int id) {
+        playlistRepository.getById(id);
+        playlistRepository.delete(id);
     }
 
     @Override
@@ -39,5 +61,10 @@ public class PlaylistService implements IPlaylistService {
 
     @Override
     public void sortByNameThenId() {
+    }
+
+    @Override
+    public void addSongInPlaylist(int idSong, int idPlaylist) {
+        playlistRepository.addSongInPlaylist(idSong, idPlaylist);
     }
 }

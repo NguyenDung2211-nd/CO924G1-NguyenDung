@@ -1,9 +1,12 @@
 package case_study.view;
 
+import case_study.controller.PlaylistController;
 import case_study.controller.SongController;
+import case_study.entity.Playlist;
 import case_study.entity.Song;
 
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -18,12 +21,12 @@ public class Main {
             System.out.println("Mời bạn nhập lựa chọn : ");
             choice = getChoice(scanner);
 
-            switch(choice){
+            switch (choice) {
                 case 1:
                     managerSong();
                     break;
                 case 2:
-                    managerPlaylist(scanner);
+                    managerPlaylist();
                     break;
                 case 0:
                     System.out.println("Đã thoát.");
@@ -34,11 +37,11 @@ public class Main {
         }
     }
 
-    private static void managerSong(){
+    private static void managerSong() {
         Scanner scanner = new Scanner(System.in);
         SongController songController = new SongController();
         int choice = 0;
-        while(true){
+        while (true) {
             System.out.println();
             System.out.println("========== Quản lí bài hát ==========");
             System.out.println("1. Thêm bài hát.");
@@ -51,7 +54,7 @@ public class Main {
             System.out.println("Mời bạn nhập lựa chọn : ");
             choice = getChoice(scanner);
 
-            switch(choice){
+            switch (choice) {
                 case 1:
                     addSong(scanner, songController);
                     break;
@@ -80,22 +83,22 @@ public class Main {
         }
     }
 
-    private static void addSong(Scanner scanner, SongController songController){
+    private static void addSong(Scanner scanner, SongController songController) {
         int id = 0;
-        while(true){
+        while (true) {
             System.out.println("Nhập id bài hát : ");
-            try{
+            try {
                 id = Integer.parseInt(scanner.nextLine());
-                if(id <= 0){
+                if (id <= 0) {
                     System.out.println("Sai yêu cầu. id phải là một số nguyên dương (> 0)");
-                }else if(songController.isIdExist(id)){
+                } else if (songController.isIdExist(id)) {
                     System.out.println("Id bài hát đã tồn tại. vui lòng nhập id khác.");
-                }else{
+                } else {
                     break;
                 }
-            }catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("sai yêu cầu. Id phải là một số.");
-            }catch(Exception e){
+            } catch (Exception e) {
                 System.out.println("Lỗi không xác định.");
             }
         }
@@ -110,16 +113,16 @@ public class Main {
         String genre = scanner.nextLine();
 
         int releaseYear = 0;
-        while(true){
+        while (true) {
             System.out.println("Nhập năm sản xuất : ");
-            try{
+            try {
                 releaseYear = Integer.parseInt(scanner.nextLine());
-                if(releaseYear <= 0){
+                if (releaseYear <= 0) {
                     System.out.println("Sai yêu cầu. Năm sản xuất phải là một số nguyên dương (> 0)");
-                }else{
+                } else {
                     break;
                 }
-            }catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Sai yêu cầu. Năm sản xuất phải là một số.");
             }
         }
@@ -128,33 +131,33 @@ public class Main {
 
     private static void deleteSong(Scanner scanner, SongController songController) {
         int id = 0;
-        while(true) {
+        while (true) {
             System.out.print("Nhập id bài hát cần xóa: ");
             try {
                 id = Integer.parseInt(scanner.nextLine());
-                if(id <= 0){
+                if (id <= 0) {
                     System.out.println("Sai yêu cầu. id phải là một số nguyên dương (> 0).");
-                }else{
+                } else {
                     break;
                 }
-            }catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Sai yêu cầu. id phải là 1 số.");
-            }catch(Exception e){
+            } catch (Exception e) {
                 System.out.println("Lỗi không xác định.");
             }
         }
         Song song = songController.getById(id);
-        if(song == null){
-            System.out.println("Không tìm thấy bài hát có id là " + id +".");
-        }else{
-            System.out.println("Thông tin bài hát cần xóa : " + song +".\nBạn có chắc muốn xóa bài hát này không? " + "\n Lưu ý hành động này không thể hoàn tác.");
+        if (song == null) {
+            System.out.println("Không tìm thấy bài hát có id là " + id + ".");
+        } else {
+            System.out.println("Thông tin bài hát cần xóa : " + song + ".\nBạn có chắc muốn xóa bài hát này không? " + "\n Lưu ý hành động này không thể hoàn tác.");
             System.out.println("Bấm y để xác nhận xóa. Bấm phím bất kì để hủy.");
 
             char confirm = scanner.nextLine().charAt(0);
 
-            if(confirm == 'y'){
+            if (confirm == 'y') {
                 songController.delete(id);
-            }else{
+            } else {
                 System.out.println("Hủy xóa bài hát.");
             }
         }
@@ -217,32 +220,38 @@ public class Main {
     }
 
 
-
-    private static void managerPlaylist(Scanner scanner){
+    private static void managerPlaylist() {
+        Scanner scanner = new Scanner(System.in);
+        PlaylistController playlistController = new PlaylistController();
         int choice = 0;
-        while(true){
+        while (true) {
             System.out.println();
             System.out.println("========== QUẢN LÍ DANH SÁCH PHÁT ==========");
             System.out.println("1. Tạo danh sách phát mới.");
             System.out.println("2. Hiển thị danh sách phát.");
             System.out.println("3. Thêm bài hát vào danh sách phát.");
             System.out.println("4. Xóa bài hát khỏi danh sách phát.");
-            System.out.println("5. Xóa danh sách phát.");
+            System.out.println("5. Xóa danh sách phát(Nhập id danh sách phát để xóa).");
             System.out.println("6. Tìm kiếm danh sách phát (Nhập tên danh sách phát để xóa.");
             System.out.println("7. Sửa tên danh sách phát (Nhập id danh sách phát để sửa)");
             System.out.println("0. Thoát chương trình.");
+            System.out.println("Mời bạn nhập lựa chọn : ");
             choice = getChoice(scanner);
 
-            switch(choice){
+            switch (choice) {
                 case 1:
+                    addPlaylist(scanner, playlistController);
                     break;
                 case 2:
+                    playlistController.print();
                     break;
                 case 3:
+                    addSongInPlaylist(scanner, playlistController);
                     break;
                 case 4:
                     break;
                 case 5:
+                    deletePlaylist(scanner, playlistController);
                     break;
                 case 6:
                     break;
@@ -255,18 +264,133 @@ public class Main {
         }
     }
 
-    private static int getChoice(Scanner scanner){
+    private static void addPlaylist(Scanner scanner, PlaylistController playlistController) {
+        int id = 0;
+        while (true) {
+            System.out.println("Nhập id danh sách phát : ");
+            try {
+                id = Integer.parseInt(scanner.nextLine());
+                if (id <= 0) {
+                    System.out.println("Sai yêu cầu. id phải là một số nguyên dương (> 0)");
+                } else if (playlistController.isIdExist(id)) {
+                    System.out.println("Id danh sách phát đã tồn tại. vui lòng nhập id khác.");
+                } else {
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("sai yêu cầu. Id phải là một số.");
+            } catch (Exception e) {
+                System.out.println("Lỗi không xác định.");
+            }
+        }
+
+        System.out.println("Nhập tên danh sách phát : ");
+        String name = scanner.nextLine();
+
+        playlistController.add(new Playlist(id, name));
+    }
+
+    private static void addSongInPlaylist(Scanner scanner, PlaylistController playlistController) {
+        SongController songController = new SongController();
+        playlistController.print();
+        int idPlaylist;
+        boolean found = true;
+        while (true) {
+            System.out.print("Nhập id danh sách phát bạn muốn thêm bài hát vào : ");
+            try {
+                idPlaylist = Integer.parseInt(scanner.nextLine());
+                if (idPlaylist <= 0) {
+                    System.out.println("Sai yêu cầu. id phải là một số nguyên dương (> 0).");
+                    continue;
+                }
+                if (songController.getById(idPlaylist) == null) {
+                    System.out.println("Không tìm thấy bài hát với Id: " + idPlaylist);
+                    continue;
+                }
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Sai yêu cầu. id phải là một số.");
+                found = false;
+            } catch (Exception e) {
+                System.out.println("Lỗi không xác định.");
+                found = false;
+            }
+        }
+        if (found) {
+            songController.print();
+            int idSong;
+            while (true) {
+                System.out.print("Nhập id bài hát bạn muốn thêm vào danh sách phát : ");
+                try {
+                    idSong = Integer.parseInt(scanner.nextLine());
+                    if (idSong <= 0) {
+                        System.out.println("Sai yêu cầu. id phải là một số nguyên dương (> 0).");
+                        continue;
+                    }
+                    if (songController.getById(idSong) == null) {
+                        System.out.println("Không tìm thấy bài hát với Id: " + idSong);
+                        continue;
+                    }
+                    playlistController.addSongInPlaylist(idSong, idPlaylist);
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Sai yêu cầu. id phải là một số.");
+                } catch (Exception e) {
+                    System.out.println("Lỗi không xác định.");
+                }
+            }
+        }
+
+    }
+
+    private static void deletePlaylist(Scanner scanner, PlaylistController playlistController) {
+        int id = 0;
+        while (true) {
+            System.out.print("Nhập id danh sách phát cần xóa: ");
+            try {
+                id = Integer.parseInt(scanner.nextLine());
+                if (id <= 0) {
+                    System.out.println("Sai yêu cầu. id phải là một số nguyên dương (> 0).");
+                } else {
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Sai yêu cầu. id phải là 1 số.");
+            } catch (Exception e) {
+                System.out.println("Lỗi không xác định.");
+            }
+        }
+        Playlist playlist = playlistController.getById(id);
+        if (playlist == null) {
+            System.out.println("Không tìm thấy danh sách phát có id là " + id + ".");
+        } else {
+            System.out.println("Thông tin danh sách phát cần xóa : " + playlist + ".\nBạn có chắc muốn xóa danh sách phát này không? " + "\n Lưu ý hành động này không thể hoàn tác.");
+            System.out.println("Bấm y để xác nhận xóa. Bấm phím bất kì để hủy.");
+
+            char confirm = scanner.nextLine().charAt(0);
+
+            if (confirm == 'y') {
+                playlistController.delete(id);
+            } else {
+                System.out.println("Hủy xóa danh sách phát.");
+            }
+        }
+    }
+
+    private static int getChoice(Scanner scanner) {
         int choice = 0;
-        while(true){
-            try{
+        while (true) {
+            try {
                 choice = Integer.parseInt(scanner.nextLine());
                 return choice;
-            }catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Lựa chọn phải là một số.");
-            }catch(Exception e){
+            } catch (Exception e) {
                 System.out.println("Lỗi không xác định.");
             }
         }
     }
-    
+
+
+
 }

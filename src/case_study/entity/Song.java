@@ -7,6 +7,9 @@ public class Song {
     private String genre;
     private int releaseYear;
 
+    public Song(){
+    }
+
     public Song(int id, String name, String singer, String genre, int releaseYear) {
         this.id = id;
         this.name = name;
